@@ -1,0 +1,2502 @@
+From a3399e8add2412ba9f4e576e54ddfe60b9ff43cd Mon Sep 17 00:00:00 2001
+From: vijaynirmal1988 <vijaynirmal.btech@gmail.com>
+Date: Thu, 28 Nov 2019 18:24:16 +0530
+Subject: [PATCH 2/3] New Update 28-11-2019
+
+---
+ .../Selenium/testLccrm/TestLeadEntry.class    | Bin 10880 -> 6790 bytes
+ src/com/Selenium/testLccrm/TestLeadEntry.java | 843 ++++++++++++------
+ test-output/Default suite/Default test.html   | 199 +++--
+ test-output/Default suite/Default test.xml    | 112 +--
+ test-output/Default suite/testng-failed.xml   |  28 +-
+ test-output/Lccrm/lead.html                   |  52 +-
+ test-output/Lccrm/lead.xml                    |  18 +-
+ test-output/Lccrm/testng-failed.xml           |  28 +-
+ test-output/emailable-report.html             |  53 +-
+ test-output/index.html                        | 494 +++++-----
+ ...T-com.Selenium.testLccrm.TestLeadEntry.xml |  70 +-
+ test-output/old/Default suite/classes.html    |   6 +-
+ .../Default suite/methods-alphabetical.html   |  10 +-
+ test-output/old/Default suite/methods.html    |  10 +-
+ test-output/old/Default suite/toc.html        |   4 +-
+ .../old/Lccrm/methods-alphabetical.html       |   4 +-
+ test-output/old/Lccrm/methods.html            |   4 +-
+ test-output/old/Lccrm/toc.html                |   4 +-
+ test-output/old/index.html                    |   6 +-
+ test-output/testng-failed.xml                 |  28 +-
+ test-output/testng-results.xml                | 111 ++-
+ 21 files changed, 1384 insertions(+), 700 deletions(-)
+
+diff --git a/bin/com/Selenium/testLccrm/TestLeadEntry.class b/bin/com/Selenium/testLccrm/TestLeadEntry.class
+index 8c7697bfc9d7c6d445e20a5582e2c64850ab8a0f..bec2c06cca4201376b58478d1c50e9c030e2189f 100644
+GIT binary patch
+literal 6790
+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
+
+literal 10880
+zcmb_i34B!5x&NQp?oBdm320+o0Ffj>GK8%)NF@mYqaiE<!H7U_W^R%zvpI8zB-V;+
+zt!rKDzJOb)J4ztpQmeJDxYSqstnGXHo_5jN*4K?%@%_)eb2Bq!2;}{q{G5C4x195x
+z?|kdId3oOxPXm}E-c;Zcm=cOd13^8a$Bc9|VCpHeB@{|V1FPgn*TPLPGufxWBQW+1
+zZIc#=XtA!qvW_$KkSXBm2@4$45>Ivo;t4%=rWQy!Gp*4(7A1{MdUC#ir$;kLT~m-S
+zl};q$Ni&c(0)sqjNKZbsC!XBc5sz;am|^j12`$vE2NH23(3?ti2GS`#8I6baNZ{09
+zaPgW9H95VhZe8b+RfoV9l%!J1kRFK$R2~9LBPq$@JHdz<<~Ib~l~rw=ppl{!!;LaO
+z#$c?#m=+_Zx2B^VdUBQ45zz%oTjC)t(xxR1`JMrK%x)tkFtz1Sj)KdUbm*P&q#jHg
+zCZ{Z4nU0x8RBtm<2Is7g#p0%B8u1vXoMP=o9x4w_%VGiz*%{`mI8xy79=#)MomWk$
+zI~kAaHTIi|qXmv?syltrvNf$O%jy>ePq*<IV!f9;o`}f`CgoX3urFomQ9q8w6bhWu
+z&E-j2NYd;R_<Cha){=r|(uj4<9}1}&3Q{mtprVkm*&+oREy-=OE5>msD*{cx4=;Qw
+zrVA|ZHqAs`AdoV(F0QJ_HW|ryEUL%Mh_v~dP$ZrXYoU;yO4W47Q)a*d+rO)uEo-xW
+zTH<7{NpvSlP>q0s8mg#}ScCTL$4u1HOuD2^PAIVdsx}3)Y2}4xIgo>R>BaKDql+;M
+zUy~;Hb%A4T^F6RPo?O)?wNmGY0#(X?f*%V&8}>!DnASyus;acT=74idS(dQuYkmn9
+zqCr8uz;T5HAKbpf;721C(XFMq#?vMZblO4JT9u)lUxdXtNx>58+A^QCX+#2{cr27o
+zCV7GZNw}Ks=tnb77EppsjmugW1!a61mY%z4L92qL^uXbF;fUhLGAtJuZA23hBV?G7
+zJ{hkBPOd!pAWI!gvCayXW>@+V#3~+4j}Z&Udl;Dxs;o5@CAr&hs)98P0K@OdruU;=
+zMk_U{^%_y*ESiA2l97LrW@-Y(O}!!AK5qr<1j;OB8u38$vO$c34FX4Jow_+@>d9m}
+zVd~*Q8Xnt$f{{!$3~Op4X~dI;+2@v4t$?Y;?<}_1i0CRh1&+uIMJsigIwscE^hQ#>
+z#R#EWx<RdiGZ@iwd7ER2w8>bbYtdpDh)A-iz_^SnayxQ``O*#Jv`VS9L(4VAh~Z2*
+zTT<XF+1YZ|<D}BzXqQDOF2W}CD&S$(?zcuNm6Od@#(SnLHBu=CDVb`P$7yGMe)Qoi
+zf$@zio9b6JZD?KH(z2mGxS^q?zV#G=+54xhgHJeL3V*gA-^MvSXT~Ng6V}s`XH+&H
+zdghe7JJ*jA_=|BqE>v(qCQ1*lL2EHTF2Z*NMse{LEoE}wOqW(ZZI+XL*N;miel+om
+zjif^$QJ48~Ij*305Jff_N)Ab8(sJM5!_^9|%EYbV<s^e2*Wg-)6fPx?LtuSn^Z!BJ
+zhoVxevXC0R-j7ijU4$EOlY$#Fo}43T-tkJVRecHFkDGA|brM{)vbmL!a_X>BI$YGp
+zZMZ|h?U@Levr2&~OLF;fC$`vm-I+w@jYC_ls!hdRG7I#wLePvzG48>A3hos+tWdOS
+zpyB@j+gNNGj0iIdB~NSJ{nJ%LALC#(?)T#XJV;qP85^4-y3F=We}&T|c@7w&GraQ^
+zJWNTm!LG4eO9u5b(|Rn#Qs_23>c@6G#!`>gVplg(MQvIn&A>XIAw0{PDSk?@13MM;
+zGlmvY0Mlq@Z9jHlfSOC`vG6H+AM@vtm1}e6%N2!TN5yX10@a-839ERD2HauBg4!ls
+zF8GWeKax@38)9tPsNly3Na8uwhwKtUri$kUidg42Qj>bJ7|-Gb832DeT=C&3uc}Sb
+zzvRcuc!h2+yM>V1(AOLb>%A<X>B4O#cnz;B*u%tqkPzv|8*&!Pk_j9t-lByB*v0gk
+zl~rq59GIFBOI6m)sF1Bps-kKgt6-LQW;|I}msnf7PTJnve*BxXFK=%`GrLv1!z>dB
+zB-YxqEU2gthbOk`Jrm^=73);|JD2Q~!6>FhdE)ormwvn_C-6vs6#v&UVEl)`ssBG=
+zVu-8Lu;0g{3O*2+IGm28;i>p<2KT5D4ztChd@4So1w|Na?YG|wOb!GLnIG3KG#Nt{
+zRLG52tXsQK5-g}#6z`~5SA^f=69peL$rUnDX^ejS0iV*wSaq#hxvYgsEa;Y!lr6`f
+z1cX-1SwHjRfAAM+hu!fc9lUxNi_S6ijO$3b{^rNu<;ukk^^K=&2rjR0Y%0cHe6HZ1
+z`7MdnYWVRld_gfcNrzn4$&i;DQS8Q+L12iJ%9XzK3&@q+tLht6!RC2xAP_b-tz8(R
+zK2r-S*p)@A*`S6tPRtIglUmq_SF8)Lb?(q3G&)sy7#<RuEL*$MS~6^~HIqjpd=yLz
+zhm&kTRH4e2l;w~rie*E~rj8VpKuH*}5Iap(jAn%tjd!qeiCImiDr6bQ4m})U<Ee^L
+z@>wBP72~O&MAuS_xHYbd!`PiNGAy@*NHxhgtctI&o0N`iSJX}6bjWHXgIqdIfsUZm
+z<Y|tjOv7aP9gnqIQnP&=LpFAvX)V%B+2mH(HjXFIuDRl!gOjOZBI_<<WWI`b((}_P
+z-Y}?QGSj^5;G25cCmJ%Es$vS`Hm6Hyu|8WtQw6360@KzmG{Ore$Mhbl=E+p8JcZhs
+z&S3DVipr5N%;M2Z8wtZ~GRznW!yGcy4975gQ1;BG$S`vx3~~>%M#3QXFozj2-;_h~
+zNOdY&J!fKO5bx|{n60jrc5Eq|&#XPq8!^A!XO^Fh>j>AMlgD4j@~@!$a|_FR!a?ct
+z=VyC7j+W0%uvnUASlWH9Di*RG$_3l*MMQ(`DTDNue-XZ@z&x{5vAEzoM4VJ;9>Uq*
+z9xfd<o=&FpCc0yk!68gPO`57;=#`$=C}UEP(I}jb=*yFOrz%=)%t=~msn!*br@HGy
+zp*U}kRI%K$nA}*FIrrLGg*CYH;0$wfjwo|ip}bKn+Qg}fU~8Ilow%x-jak?)+Qn%y
+z(nWMVA&UWCRWO^1)BR$dSZ_B0vPqCx&FK=@-n&!D5RrDob{aX>J*@Yb(-_h6Fu9Ex
+z*Xm%f+{l=jjQ3EPvN9CS<PBM+4cnN4DQrkd#O75Pl!UVgOd7TdmhA_rxu%ExH7ml2
+z1((Rye57`TnHSyRu)IMEhw0q>oo)TnZ#kZ8{n7_V(E>snmuiX3#p0+2%?x$RK3?|o
+zs$hvVr(ktt(M?>Wvs{W4sFGB17Wb7~6WI()lJRt6;!>W8o@9-ninCcn4lYn*l}<FD
+zY{}J;HqCg<N`dFtS-_genx|dYlBzhDu8@kDS@4Q9)kMVk+#bu<28&h}v8uRmze3Fx
+z$`MBu-(mJ33%$_7sN%c(uPHBVRdK0ZiQ3-OVx;H~mou}{hb%sss8n&Ko#ZS?kolR}
+zPZd|${%ixK_sKI=#WhT}wKD@VX9s4@tUX>8*V)O|B5R7tixm=mUlPp<%$l1ax{-Eg
+zORI{TDN&~uN=MATHa*#)F*n~zP%LgawFA1HhQwfSCuNPr<t2)P*h-5In^sZ6pmVoe
+zs5UTjUS^?tIg^D8rmbsylKepCSs5=@#S=z|fFII6d3WETiU%C(Mpn~w3nCwKsI7oQ
+zz$5genRDxA&s4>B7RT01+$S-Q+n70XRnbo|<xO;U)m;=!LYzgP$WUZgdXf<8#6B6G
+zBc+mN!u92Yrjev=(D^ORT9zSCl+$L<lJZzsd5WCPJ}UeCh_ZHIJED>~8A2PSDr~4~
+zjVUu#DphPlEwSz06E624x65^djL0Ef-X$?|OZvf2C^fR8qyWvan4YvI)!Dy|8*<CT
+z`Yv<5Dpwr5DD~M_b(jP?JFmxNK;^ZzyeX3xxz>~SOV*P&G1im!2Yh<S!LJeg9mlr-
+zpDbeGowgIDk8<F`c>ek<U^ymm?6(PU7!KzfD}FM&P@bVWf=@Zoof)3>rC%*QY8Q@K
+zGi^7HYu|~A9jKi4I4Vo04Pb@~gwAT0@8dCNC+6+I@$zK=3~K{8k@*O7wxekPr+Ba?
+z2eU$=R|{k%Jeu1Crf{pg*GDCeMinpBr{QEw$2!c&k$nB2<fl<`H`ZE`yKp+zTe~RX
+zp1#TdwPtk4trYF!q<kt*??$M-RNslNmfbMgr|-nZrIbI`K4T{mJCNFrbn7$<nR55z
+zTRX6s!_ECT&wgASp68Ls&7OW->aOm`l{;`9->=(_@Au<Yjw(yH?!w&z_@N7)r|?j_
+zTVnh1NN@m;Q&A4Dr!emm!|}?=pL7TY@U*~gJZq`F^f?E-6F;f*mV15uc+oS@cc1Si
+zx!?r8URtM=D-(PJc+~~(JoP@`ofA}v<JPvKilfTXH+SJ@mf+Uh7U<_gLBH6AcXPJK
+zN!1HgQ9XcPxp|uZDUjKzobkU#K>OhcXn*5~RaaDAWUJY0DSJD97i{;G{xP@<f41dt
+z@Z0g%e85n_ci|uTB-^nsyO}Z}oK*+)QzqPpE_Ipkj)Yhl331U#h)YI7JZdDwV@5(e
+zZY0EIBO#vPc!O;kLr>a1RmXeE#NiHubf4n#;<3f_AL#&PqTE3p>RexS801_f<t2<1
+zFJ@O_5VeDY#QMwq`PgG}v7^dINvti#q>=3Z*pUz)SHP+(3c#ugz@`^~RTqE-3czX$
+zz-AYK%`E`?S^?Pc1z__Fz!o?<9{xaWwVyZ=;`)&gH;#n3X(Yr;4vjc#lg$o;w8_!s
+zqrG_+drB^LO!=66?9yE9*z&Pii(OVg_bZ0L_Dg8vMR1o`&3rOJEmsD_T7fNlPrJ}3
+zCio_JJm1{1caAI-+_IPvt^95Z%w{z-kEO!#I0p0icL?8L?X!^omS6==Vo}hHv-#oo
+z3M}O(mR4S@FUKobgAZ^jev8xaDJk~ibm78!p+Xbm(IF}j5_RYjoiM~T*eIUnC&WF7
+ziBI{>@Jl3IlX0eNHcZzNY;u|Cb#1{}u01&0^*PRQSK?gvYFywx9~ZeF#>MXUaEYe~
+zmw6`Pa!)0$^sL5Jo+z&Nq;QSrGF<Dq8rONY;d;-*xWV%tZt@o4X75qB#aoM8y-m2y
+z+m744QQYA@4|jU6#}@B4Y-OIi%ljto_I`+aynAt<Zz{I=g1FyzE*|tfh=+ae^3GVn
+zW6CjjTsaOqlm+Nl8u{g6Ep{my29z|OP%go4<yJhYY{h!zQJkhcg=ehN>H)h#%9K{c
+z%Hv{#kVRCPa=*|-2Mfewm0LszXYmXcD(8r>&{=tY;CoMWiY`{FAN$@C-GuqD*SCw!
+z@)=Ns*Y^M$VI8X2<9%C1L=;7yN$&GRj2y+DsC%x6b5!EF%zd~>aOC%FbL|ypax{v2
+zxIiR18qHnkBE``d?qi8CIT|a{JpW2~zvMA;$3j6!fuUd%N6)hQ{Q~6*FBWP)_nonq
+zHL?(!tP(f3P-H#mJ(hBp(x@)BJ-%m%iI$1JJeX~xHubmiFj<%Sc8*)LOwSMUn{#kW
+zXJj4bJO`drUKEn%g1j|tIWEfM&B}4H1E*`ZR_DucNe-^gQ|`&fUY3hxMVXJiA{Xl`
+z_honSJqIJ}O*_PviK}zVsA~r))N<9KxIUNS28SZA$So5$IdB=MWaT%Q9&d3l&V0A!
+z&UeSK*ewoLW`2kNuKi1ddmJjcb|$Ucy1&oCIK10(*S>#P?1K*0ss*ePwoE*n%m3&g
+zg{%iM6p!UnWaVe<b|{9(zr&eF%Fi&K)!j}9<M8ImKQJsdE5D5W!^=Oee4Im(C;x6|
+z1?#kBfVaEVJq+%^3k>!z(#>B&4MTSWUge*$yv81H57Ky@f#?lfiMOy7KSMu1@V$(m
+z^P|~2_z1tiK7PaV;9YSfekms7JqGn(iG}#JSiz5W9c)xmcwbz|uWL8*+u0-dQ1tVg
+z+1vPy_zb^ux$%3~czo=dflpks@CVm&eCmqfkFL%5lj|z{nL+<E*LM8H^&I}{dK-Up
+zeS*KcKEprUW3ks=gMYeD#OLni_?KJ57w#nXxp_%t1=xN&)MNr|ySqj_#ZV@Yc9)8$
+zIdb8B*S+Eyj@;Pix<velBab-JwNX6Fkyq5YmWm&9<P$4g^Tcxuriw_p#*61Uk~cK(
+z@KUJ@MJ_k5&3-~yv1<mC=nI6ExHj`!(?f*$Dg8&h!ii!O<$qrMl%vty!7aSJVSuIV
+zCy5sc8%yb@ikCPV$3G!`S)Pk{MZC)AWCs0B46Uy%EN7~%7JGa}OtRJDbw1npe8X4t
+Eze`p++5i9m
+
+diff --git a/src/com/Selenium/testLccrm/TestLeadEntry.java b/src/com/Selenium/testLccrm/TestLeadEntry.java
+index 4dfb647..6d25758 100644
+--- a/src/com/Selenium/testLccrm/TestLeadEntry.java
++++ b/src/com/Selenium/testLccrm/TestLeadEntry.java
+@@ -1,259 +1,584 @@
+-package com.Selenium.testLccrm;
+-import java.io.File;
+-import java.io.FileInputStream;
+-import java.io.IOException;
+-import java.util.concurrent.TimeUnit;
+-
+-import org.apache.poi.ss.usermodel.CellType;
+-import org.apache.poi.ss.usermodel.Row;
+-import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
+-import org.apache.poi.xssf.usermodel.XSSFCell;
+-import org.apache.poi.xssf.usermodel.XSSFSheet;
+-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+-import org.openqa.selenium.Alert;
+-import org.openqa.selenium.By;
+-import org.openqa.selenium.Keys;
+-import org.openqa.selenium.WebDriver;
+-import org.openqa.selenium.WebElement;
+-import org.openqa.selenium.chrome.ChromeDriver;
+-import org.openqa.selenium.support.ui.Select;
+-import org.openqa.selenium.support.ui.WebDriverWait;
+-import org.testng.annotations.BeforeSuite;
+-import org.testng.annotations.Test;
+-
+-
+-	public class TestLeadEntry {
+-	
+-		WebDriver wd;
+-		WebDriverWait wait;
+-		XSSFWorkbook workbook;
+-		XSSFSheet sheet;
+-		XSSFCell cell;
+-
+-		 @BeforeSuite
+-		    public void beforeSuite() {
+-		       
+-		        System.setProperty("webdriver.chrome.driver", "E:\\DOWNLOADS\\chromedriver.exe");
+-		        wd = new ChromeDriver();
+-		     // Enter url.
+-		     //	wd.get("http://localhost:80/lccrm/lccrmUI/user/userLogin.php");
+-		        wd.get("http://stagingenvironmentlccrm.cloudaccess.host/lccrm/lccrmUI/user/userLogin.php");
+-		     	wait = new WebDriverWait(wd,30);
+-				wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+-				wd.manage().window().maximize();
+-		 }
+-
+-	 @Test(priority=0)
+-	 public  void ReadData() throws IOException, InterruptedException
+-	 {
+-	 
+-	     // Import excel sheet.
+-		 File src=new File("E:\\DOWNLOADS\\Report 1.xlsx");
+-		 
+-		 // Load the file.
+-		 FileInputStream finput = new FileInputStream(src);
+-		 
+-		 // Load he workbook.
+-	    workbook = new XSSFWorkbook(finput);
+-	    
+-	    MissingCellPolicy blank = Row.MissingCellPolicy.CREATE_NULL_AS_BLANK;
+-
+-		  // Load the sheet in which data is stored.
+-		 sheet= workbook.getSheetAt(0);
+-
+-			int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
+-
+-			//for(int j=1 ; j < rowCount + 1 ; j++) {
+-			//	Row row = sheet.getRow(j);
+-			//	row.setRowNum(j);
+-				
+-				 // Import data for Email.
+-			       cell = sheet.getRow(1).getCell(0,blank);
+-			       cell.setCellType(CellType.STRING);
+-	         wd.findElement(By.id("txtemail")).sendKeys(cell.getStringCellValue());
+-			 
+-			 // Import data for password.
+-		    	cell = sheet.getRow(1).getCell(1,blank);
+-			    cell.setCellType(CellType.STRING);
+-			    wd.findElement(By.id("txtpwd")).sendKeys(cell.getStringCellValue());
+-			 //Enter to Login
+-			    wd.findElement(By.id("btnSave")).click();
+-			  //  Thread.sleep(2000);
+-			  //  Alert alert = wd.switchTo().alert();
+-			   // String alertMessage= wd.switchTo().alert().getText();
+-			   // alert.accept();
+-		//	}
+-		
+-		    Select center = new Select(wd.findElement(By.id("selCenter")));
+-			center.selectByIndex(3);
+-			
+-					for (int i = 1; i < rowCount+1; i++) {
+-						Row row = sheet.getRow(i);
+-						row.setRowNum(i);
+-						
+-						for (int k = 2; k < row.getLastCellNum(); k++) {
+-
+-			
+-				 if(k < sheet.getLastRowNum()) {
+-				    	wd.findElement(By.xpath("//text()[contains(.,'Leads')]/ancestor::p[1]")).click();
+-				    	wd.findElement(By.xpath("//p[text()='Add New Lead']")).click();
+-				    }
+-		
+-	            	
+-	            wd.findElement(By.name("firstname")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-				wd.findElement(By.name("middlename")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-                wd.findElement(By.name("lastname")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-                WebElement Date = wd.findElement(By.xpath("//input[@type='text'][@name='Dob']"));
+-			    Date.sendKeys(Keys.chord(Keys.CONTROL,"a"));
+-			    Date.sendKeys(Keys.BACK_SPACE);
+-			    Date.sendKeys(String.valueOf(row.getCell(k++,blank).getStringCellValue()));
+-			    Date.sendKeys(Keys.TAB);
+-
+-			  
+-	            wd.findElement(By.xpath("//div[@class='form-check form-check-radio']//label[1]")).click();
+-			   
+-                wd.findElement(By.name("parentguardianname")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-				
+-                wd.findElement(By.name("address")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	            
+-                wd.findElement(By.name("city")).sendKeys(row.getCell(k++,blank).getStringCellValue());	           
+-				
+-                wd.findElement(By.name("state")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-
+-                wd.findElement(By.name("pincode")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-
+-                wd.findElement(By.name("mobilenumber")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-                
+-                
+-                wd.findElement(By.name("landline")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-	            wd.findElement(By.name("email")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	            
+-                wd.findElement(By.name("pgMobileNo")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-               
+-                wd.findElement(By.id("txtParentsEmail")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	          
+-				Select dd = new Select(wd.findElement(By.id("selCurrentEducationStatus")));
+-				dd.selectByIndex(10);
+-	           
+-                wd.findElement(By.id("txtInstitutionName")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-				
+-                Select dd1 = new Select(wd.findElement(By.id("selAnnualIncome")));
+-				dd1.selectByIndex(1);
+-				Select dd2 = new Select(wd.findElement(By.id("selStreamofEducation")));
+-				dd2.selectByIndex(1);
+-				Select dd3 = new Select(wd.findElement(By.id("selTypeofIndustry")));
+-				dd3.selectByIndex(1);
+-				
+-				wd.findElement(By.name("WorkExperience")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	            
+-				wd.findElement(By.name("companyname")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-				wd.findElement(By.xpath("//*[@id=\"newform\"]//div[10]//div[1]//div[1]")).click();
+-				wd.findElement(By.xpath("//*[@id=\"newform\"]//div[10]//div[1]//div[2]")).click();
+-				wd.findElement(By.xpath("//*[@id=\"newform\"]//div[10]//div[1]//div[3]")).click();
+-				wd.findElement(By.xpath("//*[@id=\"newform\"]//div[10]//div[1]//div[4]")).click();
+-				wd.findElement(By.xpath("//*[@id=\"newform\"]//div[13]//div[1]//div[1]")).click();
+-				wd.findElement(By.xpath("//*[@id=\"newform\"]//div[13]//div[1]//div[2]")).click();
+-				wd.findElement(By.xpath("//*[@id=\"newform\"]//div[13]//div[1]//div[3]")).click();
+-	            wd.findElement(By.xpath("//div[@class='col-sm-4 col-sm-offset-1']//div[1]//label[1]")).click();
+-	            wd.findElement(By.xpath("//div[@class='col-sm-4 col-sm-offset-1']//div[3]//label[1]")).click();
+-	            wd.findElement(By.xpath("//div[@class='col-sm-4 col-sm-offset-1']//div[4]//label[1]")).click();
+-	            wd.findElement(By.xpath("//div[@class='col-sm-5']//div[1]//label[1]")).click();
+-	            wd.findElement(By.xpath("//div[@class='col-sm-5']//div[4]//label[1]")).click();
+-	           
+-				wd.findElement(By.id("txtAddFriendName1")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-			    wd.findElement(By.id("txtAddFriendMobile1")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-				wd.findElement(By.id("txtAddFriendEmail1")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	         
+-				wd.findElement(By.id("txtAddFriendName2")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-				wd.findElement(By.id("txtAddFriendMobile2")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-				wd.findElement(By.id("txtAddFriendEmail2")).sendKeys(row.getCell(k++,blank).getStringCellValue());
+-	           
+-				Select dd4 = new Select(wd.findElement(By.id("selCourseEstimatedStart")));
+-				dd4.selectByIndex(2);
+-				Select dd5 = new Select(wd.findElement(By.id("selClassSchedulePref")));
+-				dd5.selectByIndex(2);
+-				Select dd6 = new Select(wd.findElement(By.id("selHasMagooshAccount")));
+-				dd6.selectByIndex(1);
+-				wd.findElement(By.xpath("//div[@class='col-sm-12']//div[1]//label[1]")).click();
+-				wd.findElement(By.xpath("//div[@class='col-sm-12']//div[5]//label[1]")).click();
+-			    wd.findElement(By.id("btnSave")).click();
+-			    Thread.sleep(2000);
+-            }
+-			    }
+-	 }
+-		// @Test(priority=1)
+-		 public  void BatchDataRead() throws IOException, InterruptedException
+-		 {
+-		 
+-			    
+-		         //Enter to Batch details
+-				 wd.findElement(By.xpath("//text()[contains(.,'Batch Details')]/ancestor::p[1]")).click();
+-				//Enter to Batch Group Master
+-		         wd.findElement(By.xpath("//p[text()='Batch Group Master']	")).click();
+-		         Thread.sleep(2000);
+-		         //add Batch Group
+-		         wd.findElement(By.xpath("//text()[.='Add']/ancestor::button[1]")).click();
+-		         Select Year = new Select(wd.findElement(By.id("selBatchGroupYear")));
+-				 Year.selectByIndex(1);
+-				 Select YearQuarter = new Select(wd.findElement(By.id("sltBatchGroupQuater")));
+-				 YearQuarter.selectByIndex(1);
+-				 wd.findElement(By.id("btnBGroupSave")).click();
+-				 //Enter to batch Master 
+-				 wd.findElement(By.xpath("//text()[contains(.,'Batch Details')]/ancestor::p[1]")).click();
+-		         wd.findElement(By.xpath("//p[text()='Batch Master']")).click();
+-		       //Enter to add batch details
+-		         wd.findElement(By.id("btnAddBatch")).click();
+-		         Select BatchGroupCode = new Select(wd.findElement(By.id("selBatchGroupCode")));
+-		         BatchGroupCode.selectByIndex(1);
+-				 Select CourseList = new Select(wd.findElement(By.id("selCourseList")));
+-				 CourseList.selectByIndex(1);
+-				 Select BatchType = new Select(wd.findElement(By.id("selBatchType")));
+-				 BatchType.selectByIndex(1);
+-				 Select BatchSession = new Select(wd.findElement(By.id("selBatchSession")));
+-				 BatchSession.selectByIndex(1);
+-				 WebElement StartDate = wd.findElement(By.id("txtBatchStartDate"));
+-				 StartDate.sendKeys("10/03/2019");
+-				 WebElement EndDate = wd.findElement(By.id("txtBatchEndDate"));
+-				 EndDate.sendKeys("12/25/2019");
+-		         wd.findElement(By.id("btnAdd")).click();
+-		         //Enter to add Course Details
+-		         Select facultyVerbal = new Select(wd.findElement(By.id("facultyVerbal")));
+-		         facultyVerbal.selectByIndex(1);
+-		         wd.findElement(By.id("noClassVerbal")).sendKeys("2");
+-		         wd.findElement(By.id("noTestVerbal")).sendKeys("2");
+-		         //Enter to add Class schedule 
+-		         WebElement ClassDate = wd.findElement(By.id("dtclass1"));
+-				 ClassDate.sendKeys("11/06/2019");
+-		         Select ClassSub = new Select(wd.findElement(By.id("classSubject1")));
+-		         ClassSub.selectByIndex(1);
+-		         wd.findElement(By.id("classTopic1")).sendKeys("verb");
+-		         wd.findElement(By.id("classContent1")).sendKeys("verb");
+-		         WebElement classStart1 = wd.findElement(By.id("classStart1"));
+-		         classStart1.sendKeys("05:30");
+-				 WebElement classEnd1 = wd.findElement(By.id("classEnd1"));
+-				 classEnd1.sendKeys("05:45");
+-				 //Enter to add Test Schedule
+-				 WebElement TestDate = wd.findElement(By.id("dtclass1"));
+-				 TestDate.sendKeys("11/06/2019");
+-			     Select testSubject1 = new Select(wd.findElement(By.id("testSubject1")));
+-			     testSubject1.selectByIndex(1);
+-			     wd.findElement(By.id("testTopic1")).sendKeys("verb");
+-			     wd.findElement(By.id("testContent1")).sendKeys("verb");
+-			     WebElement testStart1 = wd.findElement(By.id("classStart1"));
+-			     testStart1.sendKeys("05:30");
+-			     WebElement testEnd1 = wd.findElement(By.id("classEnd1"));
+-				 testEnd1.sendKeys("05:45");
+-		         wd.findElement(By.id("btnCourseAdd")).click();
+-		        
+-	        }
+-	    }
+-	  
+-		
++package com.Selenium.testLccrm;
++
++import java.io.File;
++import java.io.FileInputStream;
++import java.io.IOException;
++import java.text.SimpleDateFormat;
++import java.util.Date;
++import java.util.concurrent.TimeUnit;
++
++import org.apache.poi.ss.usermodel.CellType;
++import org.apache.poi.ss.usermodel.Row;
++import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
++import org.apache.poi.xssf.usermodel.XSSFCell;
++import org.apache.poi.xssf.usermodel.XSSFSheet;
++import org.apache.poi.xssf.usermodel.XSSFWorkbook;
++import org.openqa.selenium.By;
++import org.openqa.selenium.JavascriptExecutor;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.chrome.ChromeDriver;
++import org.openqa.selenium.support.ui.Select;
++import org.openqa.selenium.support.ui.WebDriverWait;
++import org.testng.annotations.BeforeSuite;
++import org.testng.annotations.Test;
++
++public class TestLeadEntry {
++
++	WebDriver wd;
++	WebDriverWait wait;
++	XSSFWorkbook workbook;
++	XSSFSheet sheet;
++	XSSFCell cell;
++	MissingCellPolicy blank = Row.MissingCellPolicy.CREATE_NULL_AS_BLANK;
++
++	private static String timestamp() {
++		return new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date());
++	}
++
++	@BeforeSuite
++	public void beforeSuite() {
++
++		System.setProperty("webdriver.chrome.driver", "E:\\DOWNLOADS\\chromedriver.exe");
++		wd = new ChromeDriver();
++		wait = new WebDriverWait(wd, 30);
++		wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
++		wd.manage().window().maximize();
++		// Start the new url from
++		wd.get("http://localhost:80/lccrm/lccrmUI/user/userLogin.php");
++		// wd.get("http://stagingenvironmentlccrm.cloudaccess.host/lccrm/lccrmUI/user/userLogin.php");
++		//wait = new WebDriverWait(wd, 30);
++		wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
++	}
++	
++	@Test(priority = 0)
++	public void LeadData() throws IOException, InterruptedException {
++		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);				
++
++		// Import excel sheet.
++		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
++		// Load the file.
++		FileInputStream finput = new FileInputStream(src);
++		// Load he workbook.
++		workbook = new XSSFWorkbook(finput);
++
++		// Load the sheet in which data is stored.
++		sheet = workbook.getSheetAt(0);
++		
++	   int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
++     // System.out.println(rowCount);
++
++		// for(int j=1 ; j < rowCount + 1 ; j++) {
++		// Row row = sheet.getRow(j);
++		// row.setRowNum(j);
++
++		// Import data for Email.
++		cell = sheet.getRow(1).getCell(0, blank);
++		cell.setCellType(CellType.STRING);
++		wd.findElement(By.id("txtemail")).sendKeys(cell.getStringCellValue());
++
++		// Import data for password.
++		cell = sheet.getRow(1).getCell(1, blank);
++		cell.setCellType(CellType.STRING);
++		wd.findElement(By.id("txtpwd")).sendKeys(cell.getStringCellValue());
++		// Enter to Login
++		wd.findElement(By.id("btnSave")).click();
++		Thread.sleep(2000);
++		// Alert alert = wd.switchTo().alert();
++		// String alertMessage= wd.switchTo().alert().getText();
++		// alert.accept();
++		// }
++
++		
++//		  for (int i = 1; i < rowCount+1; i++) { 
++//			  Row row = sheet.getRow(i);
++//	              row.setRowNum(i); 
++//		 for (int k = 2; k < row.getLastCellNum();k++) {
++//		 		 Thread.sleep(2000); 
++
++		  //select to the center to create a new leads 
++		 //new Select(wd.findElement(By.id("selCenter"))).selectByValue(row.getCell(k++,blank).getStringCellValue()); 
++//	     if(k < sheet.getLastRowNum()) { 
++//	    	 wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);				
++//	     
++//		//  wd.findElement(By.xpath("//a[@class='nav-link collapsed']//p[contains(text(),'Leads')]")).click(); 
++//		 // wd.findElement(By.xpath("//p[contains(text(),'Add New Lead')]")).click();
++//	     }
++ 
++		/*  wd.findElement(By.id("txtFirstName")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.id("txtMiddleName")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.id("txtLastName")).sendKeys(row.getCell(k++,blank).getStringCellValue()); WebElement Date =
++		  wd.findElement(By.xpath("//input[@type='text'][@name='Dob']"));
++		  Date.sendKeys(Keys.chord(Keys.CONTROL,"a")); Date.sendKeys(Keys.BACK_SPACE);
++		  Date.sendKeys(String.valueOf(row.getCell(k++,blank).getStringCellValue()));
++		  Date.sendKeys(Keys.TAB); WebElement gender1 =
++		  wd.findElement(By.id("rdMale"));
++		  WebElement gender2 = wd.findElement(By.id("rdFemale")); 
++		  WebElement gender3 = wd.findElement(By.id("rdOthers"));
++		 if(row.getCell(k,blank).getStringCellValue().equals("Male")) {
++		   ((JavascriptExecutor) wd).executeScript("arguments[0].checked = true;", gender1);
++		 } else if(row.getCell(k,blank).getStringCellValue().equals("Female")) {
++		 ((JavascriptExecutor) wd).executeScript("arguments[0].checked = true;",gender2);
++		 } else if(row.getCell(k,blank).getStringCellValue().equals("Transgender")) {
++		   ((JavascriptExecutor) wd).executeScript("arguments[0].checked = true;",gender3); 
++		   } k++;
++		   Thread.sleep(100);
++		  wd.findElement(By.name("parentguardianname")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.name("address")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.name("city")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.name("state")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.name("pincode")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++     	  wd.findElement(By.name("mobilenumber")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.name("landline")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.name("email")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		  wd.findElement(By.name("pgMobileNo")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++	      wd.findElement(By.id("txtParentsEmail")).sendKeys(row.getCell(k++,blank).getStringCellValue()); 
++	      Thread.sleep(100); 
++	      WebElement Prospect1 =wd.findElement(By.id("rdGreen")); 
++	      WebElement Prospect2 = wd.findElement(By.id("rdYellow")); 
++	      WebElement Prospect3 = wd.findElement(By.id("rdRed"));
++		 if(row.getCell(k,blank).getStringCellValue().equals("G")) {
++		     ((JavascriptExecutor) wd).executeScript("arguments[0].checked = true;",Prospect1); 
++		 } else if(row.getCell(k,blank).getStringCellValue().equals("Y"))
++		   { ((JavascriptExecutor) wd).executeScript("arguments[0].checked = true;",Prospect2);
++		 } else if(row.getCell(k,blank).getStringCellValue().equals("R"))
++		    { ((JavascriptExecutor) wd).executeScript("arguments[0].checked = true;",Prospect3); 
++		 } k++; 
++		 new Select(wd.findElement(By.id("selCurrentEducationStatus"))).selectByValue(row.getCell(k++,blank).getStringCellValue());
++		 wd.findElement(By.id("txtInstitutionName")).sendKeys(row.getCell(k++,blank).getStringCellValue()); 
++		 new Select(wd.findElement(By.id("selAnnualIncome"))).selectByValue(row.getCell(k++,blank).getStringCellValue());
++		 new Select(wd.findElement(By.id("selStreamofEducation"))).selectByValue(row.getCell(k++,blank).getStringCellValue()); 
++		 new Select(wd.findElement(By.id("selTypeofIndustry"))).selectByValue(row.getCell(k++,blank).getStringCellValue());
++		 wd.findElement(By.name("WorkExperience")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		 wd.findElement(By.id("txtCompanyName")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		 //Course selection 
++		  WebElement checkcourse1 = wd.findElement(By.xpath("//text()[contains(.,'GRE')]/ancestor::label[1]"));
++		  WebElement checkcourse2 = wd.findElement(By.xpath("//text()[contains(.,'GMAT')]/ancestor::label[1]"));
++		  WebElement checkcourse3 = wd.findElement(By.xpath("//text()[contains(.,'SAT')]/ancestor::label[1]")); 
++		  WebElement checkcourse4 = wd.findElement(By.xpath("//text()[contains(.,'ACT')]/ancestor::label[1]"));
++		  WebElement checkcourse5 = wd.findElement(By.xpath("//text()[contains(.,'TOEFL')]/ancestor::label[1]"));
++		  WebElement checkcourse6 = wd.findElement(By.xpath("//text()[contains(.,'IELTS')]/ancestor::label[1]"));
++		  WebElement checkcourse7 = wd.findElement(By.xpath("//text()[contains(.,'Admission Counseling')]/ancestor::label[1]"));
++		  WebElement checkcourse8 = wd.findElement(By.xpath("//text()[contains(.,'Others')]/ancestor::label[1]"));
++		 
++		 String courses = row.getCell(k,blank).getStringCellValue(); 
++		 String[]coursesSplit = courses.split(",");
++		 
++		 //looping through the course names separated by , 
++		 for (int x = 0; x < coursesSplit.length; x++) {
++		 
++		 if(coursesSplit[x].equals("GRE")) { 
++		     ((JavascriptExecutor)wd).executeScript("arguments[0].click();", checkcourse1); 
++		 } else if(coursesSplit[x].equals("GMAT")) { 
++			 ((JavascriptExecutor) wd).executeScript("arguments[0].click();", checkcourse2); 
++		 } else if(coursesSplit[x].equals("SAT")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", checkcourse3);
++		 } else if(coursesSplit[x].equals("ACT")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", checkcourse4); 
++		 } else if(coursesSplit[x].equals("TOFEL")) {
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", checkcourse5); 
++		 } else if(coursesSplit[x].equals("IELTS")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", checkcourse6);
++		 } else if(coursesSplit[x].equals("Admission Counseling")) {
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", checkcourse7); 
++		 } else if(coursesSplit[x].equals("Others")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", checkcourse8);
++		     wd.findElement(By.id("txtCourseOthers")).sendKeys(coursesSplit[++x]); 
++		  }
++		 
++		  } k++;
++		   //country selection 
++		   WebElement chkcountry1 = wd.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div[2]/form/div[13]/div/div[1]/label/input")); 
++		   WebElement chkcountry2 = wd.findElement(By.xpath("//text()[contains(.,'Canada')]/ancestor::label[1]"));
++		   WebElement chkcountry3 = wd.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div[2]/form/div[13]/div/div[3]/label/input")); 
++		   WebElement chkcountry4 = wd.findElement(By.xpath("//text()[contains(.,'Australia')]/ancestor::label[1]")); 
++		   WebElement chkcountry5 = wd.findElement(By.xpath("//text()[contains(.,'Singapore')]/ancestor::label[1]")); 
++		   WebElement chkcountry6 = wd.findElement(By.xpath("//text()[contains(.,'Germany')]/ancestor::label[1]")); 
++		   WebElement chkcountry7 = wd.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[14]/div[1]/div[1]/label[2]/span[1]/span[1]")); 
++		   Thread.sleep(100); 
++	       String country = row.getCell(k,blank).getStringCellValue(); 
++	       String[] countrySplit =country.split(",");
++		 
++		 //looping through the Country names separated by , 
++	       for (int y = 0; y < countrySplit.length; y++) {
++		    if(countrySplit[y].equals("US")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", chkcountry1);
++		 } else if(countrySplit[y].equals("Canada")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", chkcountry2); 
++			} else if(countrySplit[y].equals("UK")) { 
++			((JavascriptExecutor)wd).executeScript("arguments[0].click();", chkcountry3);
++		 } else if(countrySplit[y].equals("Australia")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", chkcountry4); 
++		 } else if(countrySplit[y].equals("Singapore")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", chkcountry5); 
++		 } else if(countrySplit[y].equals("Germany")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", chkcountry6);
++		 } else if(countrySplit[y].equals("Others")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", chkcountry7);
++		 wd.findElement(By.id("txtCountryOthers")).sendKeys(countrySplit[++y]);
++		 }
++		 } k++;
++		 
++		 WebElement KnowAbout1 = wd.findElement(By.xpath("//text()[contains(.,'Flyers')]/ancestor::label[1]")); 
++		 WebElement KnowAbout2 = wd.findElement(By.xpath("//text()[contains(.,'Paper Ad')]/ancestor::label[1]")); 
++		 WebElement KnowAbout3 =wd.findElement(By.xpath("//text()[contains(.,'Internet')]/ancestor::label[1]")); 
++		 WebElement KnowAbout4 = wd.findElement(By.xpath("//text()[contains(.,'Social Net')]/ancestor::label[1]")); 
++		 WebElement KnowAbout5 = wd.findElement(By.xpath("//text()[contains(.,'College Seminar')]/ancestor::label[1]"));
++		 WebElement KnowAbout6 = wd.findElement(By.xpath("//text()[contains(.,'Friends')]/ancestor::label[1]")); 
++		 WebElement KnowAbout7 = wd.findElement(By.xpath("//text()[contains(.,'Hoarding')]/ancestor::label[1]")); 
++		 WebElement KnowAbout8 = wd.findElement(By.xpath("//text()[contains(.,'Poster/Banner')]/ancestor::label[1]")); 
++		 WebElement KnowAbout9 = wd.findElement(By.xpath("//text()[contains(.,'Email from Magoosh')]/ancestor::label[1]"));
++		 WebElement KnowAbout10 = wd.findElement(By.xpath("//text()[contains(.,'News Paper')]/ancestor::label[1]")); 
++		 WebElement KnowAbout11 = wd.findElement(By. xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[17]/div[1]/div[1]/label[2]" )); 
++		 Thread.sleep(100); 
++		 String knowabt = row.getCell(k,blank).getStringCellValue(); 
++		 String[] knowabtSplit = knowabt.split(",");
++		 
++		 //looping through the Country names separated by , 
++		 for (int z = 0; z <knowabtSplit.length; z++) { 
++			 if(knowabtSplit[z].equals("Flyers")) {
++		     ((JavascriptExecutor) wd).executeScript("arguments[0].click();", KnowAbout1);
++		 } else if(knowabtSplit[z].equals("Paper Ad")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout2); 
++		 } else if(knowabtSplit[z].equals("Internet")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout3); 
++		 } else if(knowabtSplit[z].equals("Social Net")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout4); 
++		 } else if(knowabtSplit[z].equals("College Seminar")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout5); 
++		 } else if(knowabtSplit[z].equals("Friends")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout6); 
++		 } else if(knowabtSplit[z].equals("Hoarding")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout7); 
++		 } else if(knowabtSplit[z].equals("Poster/Banner")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout8); 
++		 } else if(knowabtSplit[z].equals("Email from Magoosh")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout9); 
++		 } else if(knowabtSplit[z].equals("News Paper")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout10); 
++		 } else if(knowabtSplit[z].equals("Others")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", KnowAbout11);
++		   wd.findElement(By.id("txtKnowAboutOthers")).sendKeys(knowabtSplit[++z]);
++		 } 
++			 } k++;
++		 
++		 wd.findElement(By.id("txtAddFriendName1")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++	     wd.findElement(By.id("txtAddFriendMobile1")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		 wd.findElement(By.id("txtAddFriendEmail1")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		 wd.findElement(By.id("txtAddFriendName2")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		 wd.findElement(By.id("txtAddFriendMobile2")).sendKeys(row.getCell(k++,blank).getStringCellValue());
++		 wd.findElement(By.id("txtAddFriendEmail2")).sendKeys(row.getCell(k++,blank).getStringCellValue()); 
++		 Thread.sleep(100); 
++		 new Select(wd.findElement(By.id("selCourseEstimatedStart"))).selectByValue(row.getCell(k++,blank).getStringCellValue()); 
++		 new Select(wd.findElement(By.id("selClassSchedulePref"))).selectByValue(row.getCell(k++,blank).getStringCellValue()); 
++		 new Select(wd.findElement(By.id("selHasMagooshAccount"))).selectByValue(row.getCell(k++,blank).getStringCellValue());
++		 
++		 // Select Source of Lead 
++		 WebElement SOL1 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[1]//label[1]")); 
++		 WebElement SOL2 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[2]//label[1]")); 
++		 WebElement SOL3 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[3]//label[1]")); 
++		 WebElement SOL4 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[4]//label[1]")); 
++		 WebElement SOL5 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[5]//label[1]")); 
++		 WebElement SOL6 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[6]//label[1]")); 
++		 WebElement SOL7 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[7]//label[1]")); 
++		 WebElement SOL8 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[8]//label[1]")); 
++		 WebElement SOL9 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[9]//label[1]")); 
++		 WebElement SOL10 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[10]//label[1]")); 
++		 WebElement SOL11 = wd.findElement(By.xpath("//div[@class='col-sm-12']//div[11]//label[1]")); 
++		 Thread.sleep(100);
++		 
++		 String SOL = row.getCell(k,blank).getStringCellValue(); 
++		 String[] SOLSplit = SOL.split(",");
++		 
++		 //looping through the course names separated by , 
++		 for (int w = 0; w < SOLSplit.length; w++) {
++		 
++		 if(SOLSplit[w].equals("Telephone")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL1); 
++		 } else if(SOLSplit[w].equals("Whatsapp")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL2); 
++		 } else if(SOLSplit[w].equals("Direct Walkin")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL3); 
++		 } else  if(SOLSplit[w].equals("College Seminar")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL4); 
++			 } else if(SOLSplit[w].equals("Student Reference")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL5); 
++		 } else if(SOLSplit[w].equals("Activities")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL6); 
++		 } else if(SOLSplit[w].equals("Sulekha")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL7);
++		 } else if(SOLSplit[w].equals("Thinkvidya")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL8); 
++	     } else if(SOLSplit[w].equals("Just Dial")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL9);
++	     } else if(SOLSplit[w].equals("Urban Pro")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL10);
++	     } else if(SOLSplit[w].equals("Others")) { 
++			 ((JavascriptExecutor)wd).executeScript("arguments[0].click();", SOL11);
++		     wd.findElement(By.id("txtSOLOthers")).sendKeys(SOLSplit[++w]); 
++		 } 
++		 }
++		 wd.findElement(By.id("btnSave")).click(); 
++		 Thread.sleep(200); 
++		 File scrFile =((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
++		 FileUtils.copyFile(scrFile, 
++		 new File("E:/DOWNLOADS/Screenshot/Newlead_ "+timestamp()+".png"));
++		 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
++		 Thread.sleep(200); */
++		 //} 
++		// wd.findElement(By.xpath("//button[text()='OK']")).click(); 
++		// }
++		 
++		 
++	}
++	@Test(priority=1)
++	public void RegisterData() throws IOException, InterruptedException {
++		int j=0;
++		JavascriptExecutor js = (JavascriptExecutor) wd;
++		
++		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
++		FileInputStream finput = new FileInputStream(src);
++		workbook = new XSSFWorkbook(finput);
++		sheet = workbook.getSheetAt(5);
++		int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
++		for (int i = 1; i < rowCount + 1; i++) {
++			Row row = sheet.getRow(i);
++			row.setRowNum(i);
++		for (int k = 0; k < row.getLastCellNum(); k++) {	
++    	for (j = 1; j <= 8 ; j++) {
++    		 String nameXL = row.getCell(k,blank).getStringCellValue(); 
++    		 String[] nameXLSplit = nameXL.split(",");
++    		String name =wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[3]")).getText();
++
++    		String leadStatus =wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[7]")).getText();
++    		if(leadStatus.equals("Unassigned")) {
++    			
++    			for(int a=0;a<nameXLSplit.length;a++) {
++        			if(nameXLSplit[a].equals(name)) {
++        				 wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[1]")).click(); 
++        			}
++        		}
++    		} else if(leadStatus.equals("Inprogress")) {
++    			 wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[2]")).click(); 
++    			 Thread.sleep(1000);
++    			 wd.findElement(By.id("btnRegister")).click();
++    			 
++    		}
++    	    wd.findElement(By.id("btnAssign")).click();
++   	    	 new Select(wd.findElement(By.id("selAsnLeadStatus"))).selectByValue(row.getCell(k++,blank).getStringCellValue());
++		     new Select(wd.findElement(By.id("selAsnCounselorID"))).selectByValue(row.getCell(k++,blank).getStringCellValue());
++ 		     wd.findElement(By.xpath("//*[@id=\"viewAssignModal\"]/div/div/div/div[2]/div/div/div[1]/button")).click();
++		
++    	}
++    	for (j = 1; j <= 8 ; j++) {
++    		String leadStatus =wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[7]")).getText();
++    		if(leadStatus.equals("Inprogress")) {
++   			 wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[2]")).click(); 
++   			 Thread.sleep(1000);
++   			 wd.findElement(By.id("btnRegister")).click();
++   		}
++    	}
++    	
++		}
++                 }
++		     }
++		 
++	/*@Test(priority = 2)
++	public void BatchDataRead() throws IOException, InterruptedException {
++		try {
++			// Import excel sheet.
++			File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
++			// Load the file.
++			FileInputStream finput = new FileInputStream(src);
++			// Load he workbook.
++			workbook = new XSSFWorkbook(finput);
++
++			// Load the sheet in which data is stored.
++			sheet = workbook.getSheetAt(0);
++			
++		 int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
++	        System.out.println(rowCount);
++			
++			for (int i = 1; i < rowCount + 1; i++) {
++				Row row = sheet.getRow(i);
++				row.setRowNum(i);
++				for (int k = 0; k < row.getLastCellNum(); k++) {
++					wd.findElement(By.xpath("//text()[contains(.,'Batch Details')]/ancestor::p[1]")).click();
++					// Enter to Batch Group Master
++					wd.findElement(By.xpath("//p[text()='Batch Group']")).click();
++					Thread.sleep(100);
++					// add Batch Group
++					wd.findElement(By.id("btnBGroupAdd")).click();
++					new Select(wd.findElement(By.id("selBatchGroupYear"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++					new Select(wd.findElement(By.id("selBatchGroupQuater"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++					wd.findElement(By.id("btnBGroupSave")).click();
++					
++					// Enter to batch Master
++					Thread.sleep(2000);
++					wd.findElement(By.xpath("//p[text()='Batch']")).click();
++					
++					// Enter to add batch details
++					wd.findElement(By.id("btnAddBatch")).click();
++					new Select(wd.findElement(By.id("selBatchGroupCode"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++					new Select(wd.findElement(By.id("selCourseList"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++					new Select(wd.findElement(By.id("selBatchType"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++					wd.findElement(By.id("txtBatchSizeMin")).sendKeys(Keys.chord(Keys.CONTROL, "a"), row.getCell(k++, blank).getStringCellValue());
++					wd.findElement(By.id("txtBatchSizeMax")).sendKeys(Keys.chord(Keys.CONTROL, "a"), row.getCell(k++, blank).getStringCellValue());
++					new Select(wd.findElement(By.id("selBatchSession"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++					WebElement StartDate = wd.findElement(By.id("txtBatchStartDate"));
++					StartDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
++					StartDate.sendKeys(Keys.BACK_SPACE);
++					StartDate.sendKeys(row.getCell(k++, blank).getStringCellValue());
++					StartDate.sendKeys(Keys.TAB);
++					WebElement EndDate = wd.findElement(By.id("txtBatchEndDate"));
++					EndDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
++					EndDate.sendKeys(Keys.BACK_SPACE);
++					EndDate.sendKeys(row.getCell(k++, blank).getStringCellValue());
++					EndDate.sendKeys(Keys.TAB);
++					wd.findElement(By.id("btnAdd")).click();
++					// Enter to add Course Details
++					new Select(wd.findElement(By.id("facultyVerbal"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++					wd.findElement(By.id("noClassVerbal")).sendKeys("1");
++					wd.findElement(By.id("noTestVerbal")).sendKeys("1");
++					wd.findElement(By.id("btnCourseAdd")).click();
++
++					// Enter to add Class schedule
++					WebElement ClassDate = wd.findElement(By.id("dtclass1"));
++					ClassDate.sendKeys("05/04/2020");
++					new Select(wd.findElement(By.id("classSubject1"))).selectByValue("Verbal");
++					new Select(wd.findElement(By.id("classfaculty1"))).selectByValue("1011");
++
++					wd.findElement(By.id("classTopic1")).sendKeys("verb");
++					wd.findElement(By.id("classContent1")).sendKeys("verb");
++					WebElement StartTime = wd.findElement(By.id("classStart1"));
++					StartTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
++					StartTime.sendKeys(Keys.BACK_SPACE);
++					StartTime.sendKeys("02:45PM");
++					StartTime.sendKeys(Keys.TAB);
++					WebElement EndTime = wd.findElement(By.id("classEnd1"));
++					EndTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
++					EndTime.sendKeys(Keys.BACK_SPACE);
++					EndTime.sendKeys("04:45PM");
++					EndTime.sendKeys(Keys.TAB);
++					wd.findElement(By.xpath("//*[@id=\"row1\"]/td[9]/button[1]\r\n")).click();
++
++					// Enter to add Test Schedule
++					WebElement TestDate = wd.findElement(By.id("dttest1"));
++					TestDate.sendKeys("05/30/2020");
++					new Select(wd.findElement(By.id("testSubject1"))).selectByValue("Verbal");
++					new Select(wd.findElement(By.id("testfaculty1"))).selectByValue("1011");
++					wd.findElement(By.id("testTopic1")).sendKeys("verb");
++					wd.findElement(By.id("testContent1")).sendKeys("verb");
++					WebElement TestStartTime = wd.findElement(By.id("testStart1"));
++					TestStartTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
++					TestStartTime.sendKeys(Keys.BACK_SPACE);
++					TestStartTime.sendKeys("02:45PM");
++					TestStartTime.sendKeys(Keys.TAB);
++					WebElement TestEndTime = wd.findElement(By.id("testEnd1"));
++					TestEndTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
++					TestEndTime.sendKeys(Keys.BACK_SPACE);
++					TestEndTime.sendKeys("04:45PM");
++					TestEndTime.sendKeys(Keys.TAB);
++					wd.findElement(By.xpath("//*[@id=\"row1\"]/td[9]/button[1]")).click();
++				}
++			}
++		} catch (Exception e) {
++			e.printStackTrace();
++		}
++
++		File scrFile = ((TakesScreenshot) wd).getScreenshotAs(OutputType.FILE);
++		FileUtils.copyFile(scrFile, new File("E:/DOWNLOADS/Screenshot/Batch_ " + timestamp() + ".png"));
++		SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
++		Thread.sleep(200);
++
++	}*/
++/*	@Test(priority=2)
++	public void EmployeeData() throws IOException, InterruptedException {
++		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
++		FileInputStream finput = new FileInputStream(src);
++		workbook = new XSSFWorkbook(finput);
++		sheet = workbook.getSheetAt(2);
++		int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
++		for (int i = 1; i < rowCount + 1; i++) {
++			Row row = sheet.getRow(i);
++			row.setRowNum(i);
++		for (int k = 0; k < row.getLastCellNum(); k++) {
++    	wd.findElement(By.xpath("//text()[contains(.,'Admin')]/ancestor::p[1]")).click();
++    	wd.findElement(By.xpath("//p[text()='Employee']")).click();
++		wd.findElement(By.id("btnAddProfile")).click();
++        wd.findElement(By.name("FirstName")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++    	wd.findElement(By.name("MiddleName")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++	    wd.findElement(By.name("LastName")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		WebElement Date = wd.findElement(By.xpath("//input[@id='dtDOB']"));
++		Date.sendKeys(Keys.chord(Keys.CONTROL,"a"));
++		Date.sendKeys(Keys.BACK_SPACE);
++		Date.sendKeys(row.getCell(k++, blank).getStringCellValue());
++		Date.sendKeys(Keys.TAB);
++		wd.findElement(By.name("FatherName")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.name("SpouseName")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.id("txtAddress")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.id("txtEmail")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.id("txtCity")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.id("txtState")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.id("txtPincode")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		new Select(wd.findElement(By.id("selDepartment"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++		new Select(wd.findElement(By.id("selBusinessTitle"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++		new Select(wd.findElement(By.id("selCenterName"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.id("txtMobileNo")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.id("txtAnotherContactNo")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++		WebElement DOJ = wd.findElement(By.id("dtJoiningDate"));
++		DOJ.sendKeys(Keys.chord(Keys.CONTROL,"a"));
++		DOJ.sendKeys(Keys.BACK_SPACE);
++		DOJ.sendKeys(row.getCell(k++, blank).getStringCellValue());
++        DOJ.sendKeys(Keys.TAB);
++		new Select(wd.findElement(By.id("selActive"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++
++		wd.findElement(By.id("btnSaveProfile")).click();
++		Thread.sleep(5000);
++		
++              }
++
++         }
++	}
++	@Test(priority=3)
++	public void MasterData() throws IOException, InterruptedException {
++		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
++		FileInputStream finput = new FileInputStream(src);
++		workbook = new XSSFWorkbook(finput);
++		sheet = workbook.getSheetAt(2);
++		int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
++		for (int i = 1; i < rowCount + 1; i++) {
++			Row row = sheet.getRow(i);
++			row.setRowNum(i);
++		for (int k = 0; k < row.getLastCellNum(); k++) {
++    	wd.findElement(By.xpath("//text()[contains(.,'Admin')]/ancestor::p[1]")).click();
++    	wd.findElement(By.xpath("//p[text()='Center']")).click();
++		wd.findElement(By.id("btnAdd")).click();
++   	    new Select(wd.findElement(By.id("sltOptionType"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++		wd.findElement(By.id("txtOptionName")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++	    wd.findElement(By.id("btnSave")).click();
++	    wd.findElement(By.xpath("//text()[contains(.,'Admin')]/ancestor::p[1]")).click();
++	    wd.findElement(By.xpath("//p[text()='Course']")).click();
++		wd.findElement(By.id("txtCourseName")).sendKeys(row.getCell(k++, blank).getStringCellValue());
++   	    new Select(wd.findElement(By.id("sltSubject"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
++	    wd.findElement(By.id("btnSave")).click();
++                 }
++		     }
++		 }
++	@Test(priority=3)
++	public void ReportsData() throws IOException, InterruptedException {
++		
++    	wd.findElement(By.xpath("//text()[contains(.,'Reports')]/ancestor::p[1]")).click();
++    	wd.findElement(By.xpath("//p[text()='Lead Report']")).click();
++    	wd.findElement(By.xpath("//p[text()='Attendance Report']")).click();
++		 new Select(wd.findElement(By.id("txtPreferredYear"))).selectByValue("");
++		 new Select(wd.findElement(By.id("selBatchGroup"))).selectByIndex(0);
++		 new Select(wd.findElement(By.id("selBatchCode"))).selectByValue("");
++
++
++    	//
++    	wd.findElement(By.xpath("//p[text()='Payment Report']")).click();
++
++
++	}*/
++	}
+\ No newline at end of file
+diff --git a/test-output/Default suite/Default test.html b/test-output/Default suite/Default test.html
+index f83dd37..769749f 100644
+--- a/test-output/Default suite/Default test.html	
++++ b/test-output/Default suite/Default test.html	
+@@ -55,11 +55,11 @@ function toggleAllBoxes() {
+ <body>
+ <h2 align='center'>Default test</h2><table border='1' align="center">
+ <tr>
+-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
++<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
+ </tr><tr>
+-<td>Started on:</td><td>Tue Nov 12 12:28:30 IST 2019</td>
++<td>Started on:</td><td>Thu Nov 28 17:35:50 IST 2019</td>
+ </tr>
+-<tr><td>Total time:</td><td>11 seconds (11291 ms)</td>
++<tr><td>Total time:</td><td>18 seconds (18285 ms)</td>
+ </tr><tr>
+ <td>Included groups:</td><td></td>
+ </tr><tr>
+@@ -75,97 +75,122 @@ function toggleAllBoxes() {
+ <td><b>Instance</b></td>
+ </tr>
+ <tr>
+-<td title='com.Selenium.testLccrm.TestLeadEntry.ReadData()'><b>ReadData</b><br>Test class: com.Selenium.testLccrm.TestLeadEntry</td>
+-<td><div><pre>org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Enter User Mail-ID &amp; Password}
+-  (Session info: chrome=78.0.3904.97): Enter User Mail-ID &amp; Password
++<td title='com.Selenium.testLccrm.TestLeadEntry.RegisterData()'><b>RegisterData</b><br>Test class: com.Selenium.testLccrm.TestLeadEntry</td>
++<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#btnAssign&quot;}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+ Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+ System info: host: &apos;HP&apos;, ip: &apos;10.80.80.241&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_231&apos;
+ Driver info: org.openqa.selenium.chrome.ChromeDriver
+-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:51715}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+-Session ID: 5217ec851785c35ea9699308372b64de
+-*** Element info: {Using=id, value=txtemail}
+-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+-	at org.openqa.selenium.By$ById.findElement(By.java:188)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+-	at com.Selenium.testLccrm.TestLeadEntry.ReadData(TestLeadEntry.java:72)
+-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+-	at java.lang.reflect.Method.invoke(Unknown Source)
+-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
+-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+-	at org.testng.TestRunner.privateRun(TestRunner.java:753)
+-	at org.testng.TestRunner.run(TestRunner.java:607)
+-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
+-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
+-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
+-	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
+-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
+-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
+-	at org.testng.TestNG.runSuites(TestNG.java:1124)
+-	at org.testng.TestNG.run(TestNG.java:1096)
+-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+-</pre></div><a href='#' onClick='toggleBox("stack-trace839771540", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+-<div class='stack-trace' id='stack-trace839771540'><pre>org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Enter User Mail-ID &amp; Password}
+-  (Session info: chrome=78.0.3904.97): Enter User Mail-ID &amp; Password
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
++	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
++	at java.lang.reflect.Constructor.newInstance(Unknown Source)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
++	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
++	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
++	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
++	at org.openqa.selenium.By$ById.findElement(By.java:188)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
++	at com.Selenium.testLccrm.TestLeadEntry.RegisterData(TestLeadEntry.java:366)
++	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
++	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
++	at java.lang.reflect.Method.invoke(Unknown Source)
++	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
++	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
++	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
++	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
++	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
++	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
++	at org.testng.TestRunner.privateRun(TestRunner.java:753)
++	at org.testng.TestRunner.run(TestRunner.java:607)
++	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
++	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
++	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
++	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
++	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
++	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
++	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
++	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
++	at org.testng.TestNG.runSuites(TestNG.java:1124)
++	at org.testng.TestNG.run(TestNG.java:1096)
++	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
++	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
++	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
++</pre></div><a href='#' onClick='toggleBox("stack-trace1406848276", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
++<div class='stack-trace' id='stack-trace1406848276'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#btnAssign&quot;}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+ Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+ System info: host: &apos;HP&apos;, ip: &apos;10.80.80.241&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_231&apos;
+ Driver info: org.openqa.selenium.chrome.ChromeDriver
+-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:51715}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+-Session ID: 5217ec851785c35ea9699308372b64de
+-*** Element info: {Using=id, value=txtemail}
+-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+-	at org.openqa.selenium.By$ById.findElement(By.java:188)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+-	at com.Selenium.testLccrm.TestLeadEntry.ReadData(TestLeadEntry.java:72)
+-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+-	at java.lang.reflect.Method.invoke(Unknown Source)
+-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
+-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+-	at org.testng.TestRunner.privateRun(TestRunner.java:753)
+-	at org.testng.TestRunner.run(TestRunner.java:607)
+-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
+-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
+-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
+-	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
+-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
+-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
+-	at org.testng.TestNG.runSuites(TestNG.java:1124)
+-	at org.testng.TestNG.run(TestNG.java:1096)
+-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
++	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
++	at java.lang.reflect.Constructor.newInstance(Unknown Source)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
++	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
++	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
++	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
++	at org.openqa.selenium.By$ById.findElement(By.java:188)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
++	at com.Selenium.testLccrm.TestLeadEntry.RegisterData(TestLeadEntry.java:366)
++	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
++	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
++	at java.lang.reflect.Method.invoke(Unknown Source)
++	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
++	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
++	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
++	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
++	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
++	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
++	at org.testng.TestRunner.privateRun(TestRunner.java:753)
++	at org.testng.TestRunner.run(TestRunner.java:607)
++	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
++	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
++	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
++	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
++	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
++	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
++	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
++	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
++	at org.testng.TestNG.runSuites(TestNG.java:1124)
++	at org.testng.TestNG.run(TestNG.java:1096)
++	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
++	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
++	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+ </pre></div></td>
+-<td>11</td>
+-<td>com.Selenium.testLccrm.TestLeadEntry@61832929</td></tr>
++<td>14</td>
++<td>com.Selenium.testLccrm.TestLeadEntry@3ffc5af1</td></tr>
++</table><p>
++<table width='100%' border='1' class='invocation-passed'>
++<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
++<tr><td><b>Test method</b></td>
++<td width="30%"><b>Exception</b></td>
++<td width="10%"><b>Time (seconds)</b></td>
++<td><b>Instance</b></td>
++</tr>
++<tr>
++<td title='com.Selenium.testLccrm.TestLeadEntry.LeadData()'><b>LeadData</b><br>Test class: com.Selenium.testLccrm.TestLeadEntry</td>
++<td></td>
++<td>4</td>
++<td>com.Selenium.testLccrm.TestLeadEntry@3ffc5af1</td></tr>
+ </table><p>
+ </body>
+ </html>
+\ No newline at end of file
+diff --git a/test-output/Default suite/Default test.xml b/test-output/Default suite/Default test.xml
+index 8c99b12..f47bbd4 100644
+--- a/test-output/Default suite/Default test.xml	
++++ b/test-output/Default suite/Default test.xml	
+@@ -1,59 +1,67 @@
+-<?xml version="1.0" encoding="UTF-8"?>
++<?xml version="1.0" encoding="UTF-8"?>
+ <!-- Generated by org.testng.reporters.JUnitXMLReporter -->
+-<testsuite hostname="hp" name="Default test" tests="1" failures="1" timestamp="12 Nov 2019 06:58:41 GMT" time="11.291" errors="0">
+-  <testcase name="ReadData" time="11.257" classname="com.Selenium.testLccrm.TestLeadEntry">
+-    <failure type="org.openqa.selenium.UnhandledAlertException" message="unexpected alert open: {Alert text : Enter User Mail-ID &amp;amp; Password}
+-  (Session info: chrome=78.0.3904.97): Enter User Mail-ID &amp;amp; Password
++<testsuite hostname="hp" name="Default test" tests="2" failures="1" timestamp="28 Nov 2019 12:06:08 GMT" time="18.285" errors="0">
++  <testcase name="LeadData" time="4.178" classname="com.Selenium.testLccrm.TestLeadEntry"/>
++  <testcase name="RegisterData" time="14.067" classname="com.Selenium.testLccrm.TestLeadEntry">
++    <failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&amp;quot;method&amp;quot;:&amp;quot;css selector&amp;quot;,&amp;quot;selector&amp;quot;:&amp;quot;#btnAssign&amp;quot;}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+ Build info: version: &amp;apos;3.141.59&amp;apos;, revision: &amp;apos;e82be7d358&amp;apos;, time: &amp;apos;2018-11-14T08:25:53&amp;apos;
+ System info: host: &amp;apos;HP&amp;apos;, ip: &amp;apos;10.80.80.241&amp;apos;, os.name: &amp;apos;Windows 10&amp;apos;, os.arch: &amp;apos;amd64&amp;apos;, os.version: &amp;apos;10.0&amp;apos;, java.version: &amp;apos;1.8.0_231&amp;apos;
+ Driver info: org.openqa.selenium.chrome.ChromeDriver
+-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:51715}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+-Session ID: 5217ec851785c35ea9699308372b64de
+-*** Element info: {Using=id, value=txtemail}">
+-      <![CDATA[org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Enter User Mail-ID & Password}
+-  (Session info: chrome=78.0.3904.97): Enter User Mail-ID & Password
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}">
++      <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#btnAssign"}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+ Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+ System info: host: 'HP', ip: '10.80.80.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+ Driver info: org.openqa.selenium.chrome.ChromeDriver
+-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:51715}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+-Session ID: 5217ec851785c35ea9699308372b64de
+-*** Element info: {Using=id, value=txtemail}
+-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+-	at org.openqa.selenium.By$ById.findElement(By.java:188)
+-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+-	at com.Selenium.testLccrm.TestLeadEntry.ReadData(TestLeadEntry.java:72)
+-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+-	at java.lang.reflect.Method.invoke(Unknown Source)
+-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
+-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+-	at org.testng.TestRunner.privateRun(TestRunner.java:753)
+-	at org.testng.TestRunner.run(TestRunner.java:607)
+-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
+-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
+-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
+-	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
+-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
+-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
+-	at org.testng.TestNG.runSuites(TestNG.java:1124)
+-	at org.testng.TestNG.run(TestNG.java:1096)
+-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+-]]>
+-    </failure>
+-  </testcase> <!-- ReadData -->
+-</testsuite> <!-- Default test -->
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
++	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
++	at java.lang.reflect.Constructor.newInstance(Unknown Source)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
++	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
++	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
++	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
++	at org.openqa.selenium.By$ById.findElement(By.java:188)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
++	at com.Selenium.testLccrm.TestLeadEntry.RegisterData(TestLeadEntry.java:366)
++	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
++	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
++	at java.lang.reflect.Method.invoke(Unknown Source)
++	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
++	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
++	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
++	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
++	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
++	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
++	at org.testng.TestRunner.privateRun(TestRunner.java:753)
++	at org.testng.TestRunner.run(TestRunner.java:607)
++	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
++	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
++	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
++	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
++	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
++	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
++	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
++	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
++	at org.testng.TestNG.runSuites(TestNG.java:1124)
++	at org.testng.TestNG.run(TestNG.java:1096)
++	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
++	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
++	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
++]]>
++    </failure>
++  </testcase> <!-- RegisterData -->
++</testsuite> <!-- Default test -->
+diff --git a/test-output/Default suite/testng-failed.xml b/test-output/Default suite/testng-failed.xml
+index 32fa653..073e77c 100644
+--- a/test-output/Default suite/testng-failed.xml	
++++ b/test-output/Default suite/testng-failed.xml	
+@@ -1,14 +1,14 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+-  <test name="Default test(failed)">
+-    <classes>
+-      <class name="com.Selenium.testLccrm.TestLeadEntry">
+-        <methods>
+-          <include name="ReadData"/>
+-          <include name="beforeSuite"/>
+-        </methods>
+-      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
+-    </classes>
+-  </test> <!-- Default test(failed) -->
+-</suite> <!-- Failed suite [Default suite] -->
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
++<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
++  <test name="Default test(failed)">
++    <classes>
++      <class name="com.Selenium.testLccrm.TestLeadEntry">
++        <methods>
++          <include name="beforeSuite"/>
++          <include name="RegisterData"/>
++        </methods>
++      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
++    </classes>
++  </test> <!-- Default test(failed) -->
++</suite> <!-- Failed suite [Default suite] -->
+diff --git a/test-output/Lccrm/lead.html b/test-output/Lccrm/lead.html
+index 73182af..668a269 100644
+--- a/test-output/Lccrm/lead.html
++++ b/test-output/Lccrm/lead.html
+@@ -55,11 +55,11 @@ function toggleAllBoxes() {
+ <body>
+ <h2 align='center'>lead</h2><table border='1' align="center">
+ <tr>
+-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
++<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+ </tr><tr>
+-<td>Started on:</td><td>Wed Nov 13 10:04:30 IST 2019</td>
++<td>Started on:</td><td>Fri Nov 15 11:29:32 IST 2019</td>
+ </tr>
+-<tr><td>Total time:</td><td>203 seconds (203070 ms)</td>
++<tr><td>Total time:</td><td>17 seconds (17736 ms)</td>
+ </tr><tr>
+ <td>Included groups:</td><td></td>
+ </tr><tr>
+@@ -67,8 +67,8 @@ function toggleAllBoxes() {
+ </tr>
+ </table><p/>
+ <small><i>(Hover the method name to see the test class name)</i></small><p/>
+-<table width='100%' border='1' class='invocation-passed'>
+-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
++<table width='100%' border='1' class='invocation-failed'>
++<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+ <tr><td><b>Test method</b></td>
+ <td width="30%"><b>Exception</b></td>
+ <td width="10%"><b>Time (seconds)</b></td>
+@@ -76,8 +76,46 @@ function toggleAllBoxes() {
+ </tr>
+ <tr>
+ <td title='com.Selenium.testLccrm.TestLeadEntry.ReadData()'><b>ReadData</b><br>Test class: com.Selenium.testLccrm.TestLeadEntry</td>
+-<td></td>
+-<td>203</td>
++<td><div><pre>java.lang.NullPointerException
++	at org.openqa.selenium.remote.RemoteWebElement.isSelected(RemoteWebElement.java:149)
++	at org.openqa.selenium.support.ui.Select.setSelected(Select.java:310)
++	at org.openqa.selenium.support.ui.Select.setSelectedByIndex(Select.java:293)
++	at org.openqa.selenium.support.ui.Select.selectByIndex(Select.java:172)
++	at com.Selenium.testLccrm.TestLeadEntry.ReadData(TestLeadEntry.java:167)
++... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1928621590", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
++<div class='stack-trace' id='stack-trace1928621590'><pre>java.lang.NullPointerException
++	at org.openqa.selenium.remote.RemoteWebElement.isSelected(RemoteWebElement.java:149)
++	at org.openqa.selenium.support.ui.Select.setSelected(Select.java:310)
++	at org.openqa.selenium.support.ui.Select.setSelectedByIndex(Select.java:293)
++	at org.openqa.selenium.support.ui.Select.selectByIndex(Select.java:172)
++	at com.Selenium.testLccrm.TestLeadEntry.ReadData(TestLeadEntry.java:167)
++	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
++	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
++	at java.lang.reflect.Method.invoke(Unknown Source)
++	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
++	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
++	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
++	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
++	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
++	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
++	at org.testng.TestRunner.privateRun(TestRunner.java:753)
++	at org.testng.TestRunner.run(TestRunner.java:607)
++	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
++	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
++	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
++	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
++	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
++	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
++	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
++	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
++	at org.testng.TestNG.runSuites(TestNG.java:1124)
++	at org.testng.TestNG.run(TestNG.java:1096)
++	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
++	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
++	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
++</pre></div></td>
++<td>17</td>
+ <td>com.Selenium.testLccrm.TestLeadEntry@61832929</td></tr>
+ </table><p>
+ </body>
+diff --git a/test-output/Lccrm/lead.xml b/test-output/Lccrm/lead.xml
+index e9f8ead..6a8187a 100644
+--- a/test-output/Lccrm/lead.xml
++++ b/test-output/Lccrm/lead.xml
+@@ -1,5 +1,15 @@
+-<?xml version="1.0" encoding="UTF-8"?>
++<?xml version="1.0" encoding="UTF-8"?>
+ <!-- Generated by org.testng.reporters.JUnitXMLReporter -->
+-<testsuite hostname="hp" name="lead" tests="1" failures="0" timestamp="13 Nov 2019 04:37:53 GMT" time="203.07" errors="0">
+-  <testcase name="ReadData" time="203.034" classname="com.Selenium.testLccrm.TestLeadEntry"/>
+-</testsuite> <!-- lead -->
++<testsuite hostname="hp" name="lead" tests="1" failures="1" timestamp="15 Nov 2019 05:59:50 GMT" time="17.736" errors="0">
++  <testcase name="ReadData" time="17.699" classname="com.Selenium.testLccrm.TestLeadEntry">
++    <failure type="java.lang.NullPointerException">
++      <![CDATA[java.lang.NullPointerException
++	at org.openqa.selenium.remote.RemoteWebElement.isSelected(RemoteWebElement.java:149)
++	at org.openqa.selenium.support.ui.Select.setSelected(Select.java:310)
++	at org.openqa.selenium.support.ui.Select.setSelectedByIndex(Select.java:293)
++	at org.openqa.selenium.support.ui.Select.selectByIndex(Select.java:172)
++	at com.Selenium.testLccrm.TestLeadEntry.ReadData(TestLeadEntry.java:167)
++... Removed 25 stack frames]]>
++    </failure>
++  </testcase> <!-- ReadData -->
++</testsuite> <!-- lead -->
+diff --git a/test-output/Lccrm/testng-failed.xml b/test-output/Lccrm/testng-failed.xml
+index c77dc03..1c7d5b7 100644
+--- a/test-output/Lccrm/testng-failed.xml
++++ b/test-output/Lccrm/testng-failed.xml
+@@ -1,14 +1,14 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+-<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Lccrm]">
+-  <test name="lead(failed)">
+-    <classes>
+-      <class name="com.Selenium.testLccrm.TestLeadEntry">
+-        <methods>
+-          <include name="ReadData"/>
+-          <include name="beforeSuite"/>
+-        </methods>
+-      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
+-    </classes>
+-  </test> <!-- lead(failed) -->
+-</suite> <!-- Failed suite [Lccrm] -->
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
++<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Lccrm]">
++  <test name="lead(failed)">
++    <classes>
++      <class name="com.Selenium.testLccrm.TestLeadEntry">
++        <methods>
++          <include name="ReadData"/>
++          <include name="beforeSuite"/>
++        </methods>
++      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
++    </classes>
++  </test> <!-- lead(failed) -->
++</suite> <!-- Failed suite [Lccrm] -->
+diff --git a/test-output/emailable-report.html b/test-output/emailable-report.html
+index 9789a9e..0f649ac 100644
+--- a/test-output/emailable-report.html
++++ b/test-output/emailable-report.html
+@@ -1,2 +1,51 @@
+-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>TestNG Report</title><style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}</style></head><body><table><tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr><tr><th colspan="7">Lccrm</th></tr><tr><td><a href="#t0">lead</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">203,070</td><td></td><td></td></tr></table><table><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Lccrm</th></tr></tbody><tbody id="t0"><tr><th colspan="4">lead &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.Selenium.testLccrm.TestLeadEntry</td><td><a href="#m0">ReadData</a></td><td rowspan="1">1573619670887</td><td rowspan="1">203034</td></tr></tbody></table><h2>lead</h2><h3 id="m0">com.Selenium.testLccrm.TestLeadEntry#ReadData</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p></body></html>
+\ No newline at end of file
++<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
++<html xmlns="http://www.w3.org/1999/xhtml"><head><title>TestNG Report</title><style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}</style></head><body><table><tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr><tr><th colspan="7">Default suite</th></tr><tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">18,285</td><td></td><td></td></tr></table><table><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.Selenium.testLccrm.TestLeadEntry</td><td><a href="#m0">RegisterData</a></td><td rowspan="1">1574942754296</td><td rowspan="1">14067</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.Selenium.testLccrm.TestLeadEntry</td><td><a href="#m1">LeadData</a></td><td rowspan="1">1574942750112</td><td rowspan="1">4178</td></tr></tbody></table><h2>Default test</h2><h3 id="m0">com.Selenium.testLccrm.TestLeadEntry#RegisterData</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#btnAssign&quot;}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
++Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
++System info: host: &apos;HP&apos;, ip: &apos;10.80.80.241&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_231&apos;
++Driver info: org.openqa.selenium.chrome.ChromeDriver
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
++	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
++	at java.lang.reflect.Constructor.newInstance(Unknown Source)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
++	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
++	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
++	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
++	at org.openqa.selenium.By$ById.findElement(By.java:188)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
++	at com.Selenium.testLccrm.TestLeadEntry.RegisterData(TestLeadEntry.java:366)
++	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
++	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
++	at java.lang.reflect.Method.invoke(Unknown Source)
++	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
++	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
++	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
++	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
++	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
++	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
++	at org.testng.TestRunner.privateRun(TestRunner.java:753)
++	at org.testng.TestRunner.run(TestRunner.java:607)
++	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
++	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
++	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
++	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
++	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
++	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
++	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
++	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
++	at org.testng.TestNG.runSuites(TestNG.java:1124)
++	at org.testng.TestNG.run(TestNG.java:1096)
++	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
++	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
++	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
++</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m1">com.Selenium.testLccrm.TestLeadEntry#LeadData</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p></body></html>
+\ No newline at end of file
+diff --git a/test-output/index.html b/test-output/index.html
+index 4ddd9dd..74a1ba4 100644
+--- a/test-output/index.html
++++ b/test-output/index.html
+@@ -21,216 +21,306 @@
+   </head>
+ 
+   <body>
+-    <div class="top-banner-root">
+-      <span class="top-banner-title-font">Test results</span>
+-      <br/>
+-      <span class="top-banner-font-1">1 suite</span>
+-    </div> <!-- top-banner-root -->
+-    <div class="navigator-root">
+-      <div class="navigator-suite-header">
+-        <span>All suites</span>
+-        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+-          <img class="collapse-all-icon" src="collapseall.gif">
+-          </img> <!-- collapse-all-icon -->
+-        </a> <!-- collapse-all-link -->
+-      </div> <!-- navigator-suite-header -->
+-      <div class="suite">
+-        <div class="rounded-window">
+-          <div class="suite-header light-rounded-window-top">
+-            <a href="#" class="navigator-link" panel-name="suite-Lccrm">
+-              <span class="suite-name border-passed">Lccrm</span>
+-            </a> <!-- navigator-link -->
+-          </div> <!-- suite-header light-rounded-window-top -->
+-          <div class="navigator-suite-content">
+-            <div class="suite-section-title">
+-              <span>Info</span>
+-            </div> <!-- suite-section-title -->
+-            <div class="suite-section-content">
+-              <ul>
+-                <li>
+-                  <a href="#" class="navigator-link " panel-name="test-xml-Lccrm">
+-                    <span>C:\Users\hp\eclipse-workspace\TestAutomation\TestNG.xml</span>
+-                  </a> <!-- navigator-link  -->
+-                </li>
+-                <li>
+-                  <a href="#" class="navigator-link " panel-name="testlist-Lccrm">
+-                    <span class="test-stats">1 test</span>
+-                  </a> <!-- navigator-link  -->
+-                </li>
+-                <li>
+-                  <a href="#" class="navigator-link " panel-name="group-Lccrm">
+-                    <span>0 groups</span>
+-                  </a> <!-- navigator-link  -->
+-                </li>
+-                <li>
+-                  <a href="#" class="navigator-link " panel-name="times-Lccrm">
+-                    <span>Times</span>
+-                  </a> <!-- navigator-link  -->
+-                </li>
+-                <li>
+-                  <a href="#" class="navigator-link " panel-name="reporter-Lccrm">
+-                    <span>Reporter output</span>
+-                  </a> <!-- navigator-link  -->
+-                </li>
+-                <li>
+-                  <a href="#" class="navigator-link " panel-name="ignored-methods-Lccrm">
+-                    <span>Ignored methods</span>
+-                  </a> <!-- navigator-link  -->
+-                </li>
+-                <li>
+-                  <a href="#" class="navigator-link " panel-name="chronological-Lccrm">
+-                    <span>Chronological view</span>
+-                  </a> <!-- navigator-link  -->
+-                </li>
+-              </ul>
+-            </div> <!-- suite-section-content -->
+-            <div class="result-section">
+-              <div class="suite-section-title">
+-                <span>Results</span>
+-              </div> <!-- suite-section-title -->
+-              <div class="suite-section-content">
+-                <ul>
+-                  <li>
+-                    <span class="method-stats">1 method,   1 passed</span>
+-                  </li>
+-                  <li>
+-                    <span class="method-list-title passed">Passed methods</span>
+-                    <span class="show-or-hide-methods passed">
+-                      <a href="#" panel-name="suite-Lccrm" class="hide-methods passed suite-Lccrm"> (hide)</a> <!-- hide-methods passed suite-Lccrm -->
+-                      <a href="#" panel-name="suite-Lccrm" class="show-methods passed suite-Lccrm"> (show)</a> <!-- show-methods passed suite-Lccrm -->
+-                    </span>
+-                    <div class="method-list-content passed suite-Lccrm">
+-                      <span>
+-                        <img width="3%" src="passed.png"/>
+-                        <a href="#" class="method navigator-link" panel-name="suite-Lccrm" title="com.Selenium.testLccrm.TestLeadEntry" hash-for-method="ReadData">ReadData</a> <!-- method navigator-link -->
+-                      </span>
+-                      <br/>
+-                    </div> <!-- method-list-content passed suite-Lccrm -->
+-                  </li>
+-                </ul>
+-              </div> <!-- suite-section-content -->
+-            </div> <!-- result-section -->
+-          </div> <!-- navigator-suite-content -->
+-        </div> <!-- rounded-window -->
+-      </div> <!-- suite -->
+-    </div> <!-- navigator-root -->
+-    <div class="wrapper">
+-      <div class="main-panel-root">
+-        <div panel-name="suite-Lccrm" class="panel Lccrm">
+-          <div class="suite-Lccrm-class-passed">
+-            <div class="main-panel-header rounded-window-top">
+-              <img src="passed.png"/>
+-              <span class="class-name">com.Selenium.testLccrm.TestLeadEntry</span>
+-            </div> <!-- main-panel-header rounded-window-top -->
+-            <div class="main-panel-content rounded-window-bottom">
+-              <div class="method">
+-                <div class="method-content">
+-                  <a name="ReadData">
+-                  </a> <!-- ReadData -->
+-                  <span class="method-name">ReadData</span>
+-                </div> <!-- method-content -->
+-              </div> <!-- method -->
+-            </div> <!-- main-panel-content rounded-window-bottom -->
+-          </div> <!-- suite-Lccrm-class-passed -->
+-        </div> <!-- panel Lccrm -->
+-        <div panel-name="test-xml-Lccrm" class="panel">
+-          <div class="main-panel-header rounded-window-top">
+-            <span class="header-content">C:\Users\hp\eclipse-workspace\TestAutomation\TestNG.xml</span>
+-          </div> <!-- main-panel-header rounded-window-top -->
+-          <div class="main-panel-content rounded-window-bottom">
+-            <pre>
+-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+-&lt;suite thread-count=&quot;2&quot; guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Lccrm&quot;&gt;
+-  &lt;test name=&quot;lead&quot;&gt;
+-    &lt;classes&gt;
+-      &lt;class name=&quot;com.Selenium.testLccrm.TestLeadEntry&quot;/&gt;
+-    &lt;/classes&gt;
+-  &lt;/test&gt; &lt;!-- lead --&gt;
+-&lt;/suite&gt; &lt;!-- Lccrm --&gt;
+-            </pre>
+-          </div> <!-- main-panel-content rounded-window-bottom -->
+-        </div> <!-- panel -->
+-        <div panel-name="testlist-Lccrm" class="panel">
+-          <div class="main-panel-header rounded-window-top">
+-            <span class="header-content">Tests for Lccrm</span>
+-          </div> <!-- main-panel-header rounded-window-top -->
+-          <div class="main-panel-content rounded-window-bottom">
+-            <ul>
+-              <li>
+-                <span class="test-name">lead (1 class)</span>
+-              </li>
+-            </ul>
+-          </div> <!-- main-panel-content rounded-window-bottom -->
+-        </div> <!-- panel -->
+-        <div panel-name="group-Lccrm" class="panel">
+-          <div class="main-panel-header rounded-window-top">
+-            <span class="header-content">Groups for Lccrm</span>
+-          </div> <!-- main-panel-header rounded-window-top -->
+-          <div class="main-panel-content rounded-window-bottom">
+-          </div> <!-- main-panel-content rounded-window-bottom -->
+-        </div> <!-- panel -->
+-        <div panel-name="times-Lccrm" class="panel">
+-          <div class="main-panel-header rounded-window-top">
+-            <span class="header-content">Times for Lccrm</span>
+-          </div> <!-- main-panel-header rounded-window-top -->
+-          <div class="main-panel-content rounded-window-bottom">
+-            <div class="times-div">
+-              <script type="text/javascript">
+-suiteTableInitFunctions.push('tableData_Lccrm');
+-function tableData_Lccrm() {
++    <div class="top-banner-root">
++      <span class="top-banner-title-font">Test results</span>
++      <br/>
++      <span class="top-banner-font-1">1 suite, 1 failed test</span>
++    </div> <!-- top-banner-root -->
++    <div class="navigator-root">
++      <div class="navigator-suite-header">
++        <span>All suites</span>
++        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
++          <img class="collapse-all-icon" src="collapseall.gif">
++          </img> <!-- collapse-all-icon -->
++        </a> <!-- collapse-all-link -->
++      </div> <!-- navigator-suite-header -->
++      <div class="suite">
++        <div class="rounded-window">
++          <div class="suite-header light-rounded-window-top">
++            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
++              <span class="suite-name border-failed">Default suite</span>
++            </a> <!-- navigator-link -->
++          </div> <!-- suite-header light-rounded-window-top -->
++          <div class="navigator-suite-content">
++            <div class="suite-section-title">
++              <span>Info</span>
++            </div> <!-- suite-section-title -->
++            <div class="suite-section-content">
++              <ul>
++                <li>
++                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
++                    <span>C:\Users\hp\AppData\Local\Temp\testng-eclipse-1129218440\testng-customsuite.xml</span>
++                  </a> <!-- navigator-link  -->
++                </li>
++                <li>
++                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
++                    <span class="test-stats">1 test</span>
++                  </a> <!-- navigator-link  -->
++                </li>
++                <li>
++                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
++                    <span>0 groups</span>
++                  </a> <!-- navigator-link  -->
++                </li>
++                <li>
++                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
++                    <span>Times</span>
++                  </a> <!-- navigator-link  -->
++                </li>
++                <li>
++                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
++                    <span>Reporter output</span>
++                  </a> <!-- navigator-link  -->
++                </li>
++                <li>
++                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
++                    <span>Ignored methods</span>
++                  </a> <!-- navigator-link  -->
++                </li>
++                <li>
++                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
++                    <span>Chronological view</span>
++                  </a> <!-- navigator-link  -->
++                </li>
++              </ul>
++            </div> <!-- suite-section-content -->
++            <div class="result-section">
++              <div class="suite-section-title">
++                <span>Results</span>
++              </div> <!-- suite-section-title -->
++              <div class="suite-section-content">
++                <ul>
++                  <li>
++                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
++                  </li>
++                  <li>
++                    <span class="method-list-title failed">Failed methods</span>
++                    <span class="show-or-hide-methods failed">
++                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
++                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
++                    </span>
++                    <div class="method-list-content failed suite-Default_suite">
++                      <span>
++                        <img width="3%" src="failed.png"/>
++                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.Selenium.testLccrm.TestLeadEntry" hash-for-method="RegisterData">RegisterData</a> <!-- method navigator-link -->
++                      </span>
++                      <br/>
++                    </div> <!-- method-list-content failed suite-Default_suite -->
++                  </li>
++                  <li>
++                    <span class="method-list-title passed">Passed methods</span>
++                    <span class="show-or-hide-methods passed">
++                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
++                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
++                    </span>
++                    <div class="method-list-content passed suite-Default_suite">
++                      <span>
++                        <img width="3%" src="passed.png"/>
++                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.Selenium.testLccrm.TestLeadEntry" hash-for-method="LeadData">LeadData</a> <!-- method navigator-link -->
++                      </span>
++                      <br/>
++                    </div> <!-- method-list-content passed suite-Default_suite -->
++                  </li>
++                </ul>
++              </div> <!-- suite-section-content -->
++            </div> <!-- result-section -->
++          </div> <!-- navigator-suite-content -->
++        </div> <!-- rounded-window -->
++      </div> <!-- suite -->
++    </div> <!-- navigator-root -->
++    <div class="wrapper">
++      <div class="main-panel-root">
++        <div panel-name="suite-Default_suite" class="panel Default_suite">
++          <div class="suite-Default_suite-class-failed">
++            <div class="main-panel-header rounded-window-top">
++              <img src="failed.png"/>
++              <span class="class-name">com.Selenium.testLccrm.TestLeadEntry</span>
++            </div> <!-- main-panel-header rounded-window-top -->
++            <div class="main-panel-content rounded-window-bottom">
++              <div class="method">
++                <div class="method-content">
++                  <a name="RegisterData">
++                  </a> <!-- RegisterData -->
++                  <span class="method-name">RegisterData</span>
++                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#btnAssign&quot;}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
++Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
++System info: host: &apos;HP&apos;, ip: &apos;10.80.80.241&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_231&apos;
++Driver info: org.openqa.selenium.chrome.ChromeDriver
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
++	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
++	at java.lang.reflect.Constructor.newInstance(Unknown Source)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
++	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
++	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
++	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
++	at org.openqa.selenium.By$ById.findElement(By.java:188)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
++	at com.Selenium.testLccrm.TestLeadEntry.RegisterData(TestLeadEntry.java:366)
++	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
++	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
++	at java.lang.reflect.Method.invoke(Unknown Source)
++	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
++	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
++	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
++	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
++	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
++	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
++	at org.testng.TestRunner.privateRun(TestRunner.java:753)
++	at org.testng.TestRunner.run(TestRunner.java:607)
++	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
++	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
++	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
++	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
++	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
++	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
++	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
++	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
++	at org.testng.TestNG.runSuites(TestNG.java:1124)
++	at org.testng.TestNG.run(TestNG.java:1096)
++	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
++	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
++	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
++
++</div> <!-- stack-trace -->
++                </div> <!-- method-content -->
++              </div> <!-- method -->
++            </div> <!-- main-panel-content rounded-window-bottom -->
++          </div> <!-- suite-Default_suite-class-failed -->
++          <div class="suite-Default_suite-class-passed">
++            <div class="main-panel-header rounded-window-top">
++              <img src="passed.png"/>
++              <span class="class-name">com.Selenium.testLccrm.TestLeadEntry</span>
++            </div> <!-- main-panel-header rounded-window-top -->
++            <div class="main-panel-content rounded-window-bottom">
++              <div class="method">
++                <div class="method-content">
++                  <a name="LeadData">
++                  </a> <!-- LeadData -->
++                  <span class="method-name">LeadData</span>
++                </div> <!-- method-content -->
++              </div> <!-- method -->
++            </div> <!-- main-panel-content rounded-window-bottom -->
++          </div> <!-- suite-Default_suite-class-passed -->
++        </div> <!-- panel Default_suite -->
++        <div panel-name="test-xml-Default_suite" class="panel">
++          <div class="main-panel-header rounded-window-top">
++            <span class="header-content">C:\Users\hp\AppData\Local\Temp\testng-eclipse-1129218440\testng-customsuite.xml</span>
++          </div> <!-- main-panel-header rounded-window-top -->
++          <div class="main-panel-content rounded-window-bottom">
++            <pre>
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
++&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
++&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
++  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
++    &lt;classes&gt;
++      &lt;class name=&quot;com.Selenium.testLccrm.TestLeadEntry&quot;/&gt;
++    &lt;/classes&gt;
++  &lt;/test&gt; &lt;!-- Default test --&gt;
++&lt;/suite&gt; &lt;!-- Default suite --&gt;
++            </pre>
++          </div> <!-- main-panel-content rounded-window-bottom -->
++        </div> <!-- panel -->
++        <div panel-name="testlist-Default_suite" class="panel">
++          <div class="main-panel-header rounded-window-top">
++            <span class="header-content">Tests for Default suite</span>
++          </div> <!-- main-panel-header rounded-window-top -->
++          <div class="main-panel-content rounded-window-bottom">
++            <ul>
++              <li>
++                <span class="test-name">Default test (1 class)</span>
++              </li>
++            </ul>
++          </div> <!-- main-panel-content rounded-window-bottom -->
++        </div> <!-- panel -->
++        <div panel-name="group-Default_suite" class="panel">
++          <div class="main-panel-header rounded-window-top">
++            <span class="header-content">Groups for Default suite</span>
++          </div> <!-- main-panel-header rounded-window-top -->
++          <div class="main-panel-content rounded-window-bottom">
++          </div> <!-- main-panel-content rounded-window-bottom -->
++        </div> <!-- panel -->
++        <div panel-name="times-Default_suite" class="panel">
++          <div class="main-panel-header rounded-window-top">
++            <span class="header-content">Times for Default suite</span>
++          </div> <!-- main-panel-header rounded-window-top -->
++          <div class="main-panel-content rounded-window-bottom">
++            <div class="times-div">
++              <script type="text/javascript">
++suiteTableInitFunctions.push('tableData_Default_suite');
++function tableData_Default_suite() {
+ var data = new google.visualization.DataTable();
+ data.addColumn('number', 'Number');
+ data.addColumn('string', 'Method');
+ data.addColumn('string', 'Class');
+ data.addColumn('number', 'Time (ms)');
+-data.addRows(1);
++data.addRows(2);
+ data.setCell(0, 0, 0)
+-data.setCell(0, 1, 'ReadData')
++data.setCell(0, 1, 'RegisterData')
+ data.setCell(0, 2, 'com.Selenium.testLccrm.TestLeadEntry')
+-data.setCell(0, 3, 203034);
+-window.suiteTableData['Lccrm']= { tableData: data, tableDiv: 'times-div-Lccrm'}
++data.setCell(0, 3, 14067);
++data.setCell(1, 0, 1)
++data.setCell(1, 1, 'LeadData')
++data.setCell(1, 2, 'com.Selenium.testLccrm.TestLeadEntry')
++data.setCell(1, 3, 4178);
++window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+ return data;
+ }
+-              </script>
+-              <span class="suite-total-time">Total running time: 3 minutes</span>
+-              <div id="times-div-Lccrm">
+-              </div> <!-- times-div-Lccrm -->
+-            </div> <!-- times-div -->
+-          </div> <!-- main-panel-content rounded-window-bottom -->
+-        </div> <!-- panel -->
+-        <div panel-name="reporter-Lccrm" class="panel">
+-          <div class="main-panel-header rounded-window-top">
+-            <span class="header-content">Reporter output for Lccrm</span>
+-          </div> <!-- main-panel-header rounded-window-top -->
+-          <div class="main-panel-content rounded-window-bottom">
+-          </div> <!-- main-panel-content rounded-window-bottom -->
+-        </div> <!-- panel -->
+-        <div panel-name="ignored-methods-Lccrm" class="panel">
+-          <div class="main-panel-header rounded-window-top">
+-            <span class="header-content">0 ignored methods</span>
+-          </div> <!-- main-panel-header rounded-window-top -->
+-          <div class="main-panel-content rounded-window-bottom">
+-          </div> <!-- main-panel-content rounded-window-bottom -->
+-        </div> <!-- panel -->
+-        <div panel-name="chronological-Lccrm" class="panel">
+-          <div class="main-panel-header rounded-window-top">
+-            <span class="header-content">Methods in chronological order</span>
+-          </div> <!-- main-panel-header rounded-window-top -->
+-          <div class="main-panel-content rounded-window-bottom">
+-            <div class="chronological-class">
+-              <div class="chronological-class-name">com.Selenium.testLccrm.TestLeadEntry</div> <!-- chronological-class-name -->
+-              <div class="configuration-suite before">
+-                <span class="method-name">beforeSuite</span>
+-                <span class="method-start">0 ms</span>
+-              </div> <!-- configuration-suite before -->
+-              <div class="test-method">
+-                <span class="method-name">ReadData</span>
+-                <span class="method-start">13637 ms</span>
+-              </div> <!-- test-method -->
+-          </div> <!-- main-panel-content rounded-window-bottom -->
+-        </div> <!-- panel -->
+-      </div> <!-- main-panel-root -->
+-    </div> <!-- wrapper -->
++              </script>
++              <span class="suite-total-time">Total running time: 18 seconds</span>
++              <div id="times-div-Default_suite">
++              </div> <!-- times-div-Default_suite -->
++            </div> <!-- times-div -->
++          </div> <!-- main-panel-content rounded-window-bottom -->
++        </div> <!-- panel -->
++        <div panel-name="reporter-Default_suite" class="panel">
++          <div class="main-panel-header rounded-window-top">
++            <span class="header-content">Reporter output for Default suite</span>
++          </div> <!-- main-panel-header rounded-window-top -->
++          <div class="main-panel-content rounded-window-bottom">
++          </div> <!-- main-panel-content rounded-window-bottom -->
++        </div> <!-- panel -->
++        <div panel-name="ignored-methods-Default_suite" class="panel">
++          <div class="main-panel-header rounded-window-top">
++            <span class="header-content">0 ignored methods</span>
++          </div> <!-- main-panel-header rounded-window-top -->
++          <div class="main-panel-content rounded-window-bottom">
++          </div> <!-- main-panel-content rounded-window-bottom -->
++        </div> <!-- panel -->
++        <div panel-name="chronological-Default_suite" class="panel">
++          <div class="main-panel-header rounded-window-top">
++            <span class="header-content">Methods in chronological order</span>
++          </div> <!-- main-panel-header rounded-window-top -->
++          <div class="main-panel-content rounded-window-bottom">
++            <div class="chronological-class">
++              <div class="chronological-class-name">com.Selenium.testLccrm.TestLeadEntry</div> <!-- chronological-class-name -->
++              <div class="configuration-suite before">
++                <span class="method-name">beforeSuite</span>
++                <span class="method-start">0 ms</span>
++              </div> <!-- configuration-suite before -->
++              <div class="test-method">
++                <span class="method-name">LeadData</span>
++                <span class="method-start">12172 ms</span>
++              </div> <!-- test-method -->
++              <div class="test-method">
++                <img src="failed.png">
++                </img>
++                <span class="method-name">RegisterData</span>
++                <span class="method-start">16356 ms</span>
++              </div> <!-- test-method -->
++          </div> <!-- main-panel-content rounded-window-bottom -->
++        </div> <!-- panel -->
++      </div> <!-- main-panel-root -->
++    </div> <!-- wrapper -->
+   </body>
+ </html>
+diff --git a/test-output/junitreports/TEST-com.Selenium.testLccrm.TestLeadEntry.xml b/test-output/junitreports/TEST-com.Selenium.testLccrm.TestLeadEntry.xml
+index a7c09a8..b45fa36 100644
+--- a/test-output/junitreports/TEST-com.Selenium.testLccrm.TestLeadEntry.xml
++++ b/test-output/junitreports/TEST-com.Selenium.testLccrm.TestLeadEntry.xml
+@@ -1,5 +1,67 @@
+-<?xml version="1.0" encoding="UTF-8"?>
++<?xml version="1.0" encoding="UTF-8"?>
+ <!-- Generated by org.testng.reporters.JUnitReportReporter -->
+-<testsuite skipped="0" hostname="hp" name="com.Selenium.testLccrm.TestLeadEntry" tests="1" failures="0" timestamp="13 Nov 2019 04:37:54 GMT" time="203.034" errors="0">
+-  <testcase name="ReadData" time="203.034" classname="com.Selenium.testLccrm.TestLeadEntry"/>
+-</testsuite> <!-- com.Selenium.testLccrm.TestLeadEntry -->
++<testsuite skipped="0" hostname="hp" name="com.Selenium.testLccrm.TestLeadEntry" tests="2" failures="0" timestamp="28 Nov 2019 12:06:08 GMT" time="18.245" errors="1">
++  <testcase name="LeadData" time="4.178" classname="com.Selenium.testLccrm.TestLeadEntry"/>
++  <testcase name="RegisterData" time="14.067" classname="com.Selenium.testLccrm.TestLeadEntry">
++    <error type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#btnAssign&quot;}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
++Build info: version: &#039;3.141.59&#039;, revision: &#039;e82be7d358&#039;, time: &#039;2018-11-14T08:25:53&#039;
++System info: host: &#039;HP&#039;, ip: &#039;10.80.80.241&#039;, os.name: &#039;Windows 10&#039;, os.arch: &#039;amd64&#039;, os.version: &#039;10.0&#039;, java.version: &#039;1.8.0_231&#039;
++Driver info: org.openqa.selenium.chrome.ChromeDriver
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}">
++      <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#btnAssign"}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
++Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
++System info: host: 'HP', ip: '10.80.80.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
++Driver info: org.openqa.selenium.chrome.ChromeDriver
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
++	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
++	at java.lang.reflect.Constructor.newInstance(Unknown Source)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
++	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
++	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
++	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
++	at org.openqa.selenium.By$ById.findElement(By.java:188)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
++	at com.Selenium.testLccrm.TestLeadEntry.RegisterData(TestLeadEntry.java:366)
++	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
++	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
++	at java.lang.reflect.Method.invoke(Unknown Source)
++	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
++	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
++	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
++	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
++	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
++	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
++	at org.testng.TestRunner.privateRun(TestRunner.java:753)
++	at org.testng.TestRunner.run(TestRunner.java:607)
++	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
++	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
++	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
++	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
++	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
++	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
++	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
++	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
++	at org.testng.TestNG.runSuites(TestNG.java:1124)
++	at org.testng.TestNG.run(TestNG.java:1096)
++	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
++	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
++	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
++]]>
++    </error>
++  </testcase> <!-- RegisterData -->
++</testsuite> <!-- com.Selenium.testLccrm.TestLeadEntry -->
+diff --git a/test-output/old/Default suite/classes.html b/test-output/old/Default suite/classes.html
+index 98e9942..abec0af 100644
+--- a/test-output/old/Default suite/classes.html	
++++ b/test-output/old/Default suite/classes.html	
+@@ -11,7 +11,11 @@
+ </tr>
+ <tr>
+ <td>&nbsp;</td>
+-<td>ReadData</td>
++<td>LeadData</td>
++<td>&nbsp;</td></tr>
++<tr>
++<td>&nbsp;</td>
++<td>RegisterData</td>
+ <td>&nbsp;</td></tr>
+ <tr>
+ <td align='center' colspan='3'>@BeforeClass</td>
+diff --git a/test-output/old/Default suite/methods-alphabetical.html b/test-output/old/Default suite/methods-alphabetical.html
+index 6823515..bc2c926 100644
+--- a/test-output/old/Default suite/methods-alphabetical.html	
++++ b/test-output/old/Default suite/methods-alphabetical.html	
+@@ -1,8 +1,10 @@
+ <h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Default suite</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>
+ <table border="1">
+ <tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>
+-<tr bgcolor="90c9c3">  <td>19/11/12 12:28:30</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.ReadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">ReadData</td> 
+-  <td>main@342597804</td>   <td></td> </tr>
+-<tr bgcolor="90c9c3">  <td>19/11/12 12:28:16</td>   <td>-13583</td> <td title="&gt;&gt;TestLeadEntry.beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">&gt;&gt;beforeSuite</td> 
+-<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@342597804</td>   <td></td> </tr>
++<tr bgcolor="90c9c3">  <td>19/11/28 17:35:50</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.LeadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]">LeadData</td> 
++  <td>main@1860944798</td>   <td></td> </tr>
++<tr bgcolor="90c9c3">  <td>19/11/28 17:35:54</td>   <td>4183</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.RegisterData()[pri:1, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]">RegisterData</td> 
++  <td>main@1860944798</td>   <td></td> </tr>
++<tr bgcolor="90c9c3">  <td>19/11/28 17:35:37</td>   <td>-12169</td> <td title="&gt;&gt;TestLeadEntry.beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]">&gt;&gt;beforeSuite</td> 
++<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@1860944798</td>   <td></td> </tr>
+ </table>
+diff --git a/test-output/old/Default suite/methods.html b/test-output/old/Default suite/methods.html
+index 330ea3d..d153530 100644
+--- a/test-output/old/Default suite/methods.html	
++++ b/test-output/old/Default suite/methods.html	
+@@ -1,8 +1,10 @@
+ <h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Default suite</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>
+ <table border="1">
+ <tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>
+-<tr bgcolor="90c9c3">  <td>19/11/12 12:28:16</td>   <td>0</td> <td title="&gt;&gt;TestLeadEntry.beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">&gt;&gt;beforeSuite</td> 
+-<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@342597804</td>   <td></td> </tr>
+-<tr bgcolor="90c9c3">  <td>19/11/12 12:28:30</td>   <td>13583</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.ReadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">ReadData</td> 
+-  <td>main@342597804</td>   <td></td> </tr>
++<tr bgcolor="90c9c3">  <td>19/11/28 17:35:37</td>   <td>0</td> <td title="&gt;&gt;TestLeadEntry.beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]">&gt;&gt;beforeSuite</td> 
++<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@1860944798</td>   <td></td> </tr>
++<tr bgcolor="90c9c3">  <td>19/11/28 17:35:50</td>   <td>12169</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.LeadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]">LeadData</td> 
++  <td>main@1860944798</td>   <td></td> </tr>
++<tr bgcolor="90c9c3">  <td>19/11/28 17:35:54</td>   <td>16352</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.RegisterData()[pri:1, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]">RegisterData</td> 
++  <td>main@1860944798</td>   <td></td> </tr>
+ </table>
+diff --git a/test-output/old/Default suite/toc.html b/test-output/old/Default suite/toc.html
+index fcf2e8b..227d453 100644
+--- a/test-output/old/Default suite/toc.html	
++++ b/test-output/old/Default suite/toc.html	
+@@ -10,7 +10,7 @@
+ <tr valign='top'>
+ <td>1 test</td>
+ <td><a target='mainFrame' href='classes.html'>1 class</a></td>
+-<td>1 method:<br/>
++<td>2 methods:<br/>
+ &nbsp;&nbsp;<a target='mainFrame' href='methods.html'>chronological</a><br/>
+ &nbsp;&nbsp;<a target='mainFrame' href='methods-alphabetical.html'>alphabetical</a><br/>
+ &nbsp;&nbsp;<a target='mainFrame' href='methods-not-run.html'>not run (0)</a></td>
+@@ -22,7 +22,7 @@
+ </tr></table>
+ <table width='100%' class='test-failed'>
+ <tr><td>
+-<table style='width: 100%'><tr><td valign='top'>Default test (0/1/0)</td><td valign='top' align='right'>
++<table style='width: 100%'><tr><td valign='top'>Default test (1/1/0)</td><td valign='top' align='right'>
+   <a href='Default test.html' target='mainFrame'>Results</a>
+ </td></tr></table>
+ </td></tr><p/>
+diff --git a/test-output/old/Lccrm/methods-alphabetical.html b/test-output/old/Lccrm/methods-alphabetical.html
+index 5262517..9b22651 100644
+--- a/test-output/old/Lccrm/methods-alphabetical.html
++++ b/test-output/old/Lccrm/methods-alphabetical.html
+@@ -1,8 +1,8 @@
+ <h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Lccrm</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>
+ <table border="1">
+ <tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>
+-<tr bgcolor="90c9c3">  <td>19/11/13 10:04:30</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.ReadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">ReadData</td> 
++<tr bgcolor="90c9c3">  <td>19/11/15 11:29:32</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.ReadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">ReadData</td> 
+   <td>main@342597804</td>   <td></td> </tr>
+-<tr bgcolor="90c9c3">  <td>19/11/13 10:04:17</td>   <td>-13633</td> <td title="&gt;&gt;TestLeadEntry.beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">&gt;&gt;beforeSuite</td> 
++<tr bgcolor="90c9c3">  <td>19/11/15 11:29:18</td>   <td>-14231</td> <td title="&gt;&gt;TestLeadEntry.beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">&gt;&gt;beforeSuite</td> 
+ <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@342597804</td>   <td></td> </tr>
+ </table>
+diff --git a/test-output/old/Lccrm/methods.html b/test-output/old/Lccrm/methods.html
+index b4e610c..249a3d7 100644
+--- a/test-output/old/Lccrm/methods.html
++++ b/test-output/old/Lccrm/methods.html
+@@ -1,8 +1,8 @@
+ <h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Lccrm</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>
+ <table border="1">
+ <tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>
+-<tr bgcolor="90c9c3">  <td>19/11/13 10:04:17</td>   <td>0</td> <td title="&gt;&gt;TestLeadEntry.beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">&gt;&gt;beforeSuite</td> 
++<tr bgcolor="90c9c3">  <td>19/11/15 11:29:18</td>   <td>0</td> <td title="&gt;&gt;TestLeadEntry.beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">&gt;&gt;beforeSuite</td> 
+ <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>main@342597804</td>   <td></td> </tr>
+-<tr bgcolor="90c9c3">  <td>19/11/13 10:04:30</td>   <td>13633</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.ReadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">ReadData</td> 
++<tr bgcolor="90c9c3">  <td>19/11/15 11:29:32</td>   <td>14231</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestLeadEntry.ReadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]">ReadData</td> 
+   <td>main@342597804</td>   <td></td> </tr>
+ </table>
+diff --git a/test-output/old/Lccrm/toc.html b/test-output/old/Lccrm/toc.html
+index 08625f8..4f5fc9d 100644
+--- a/test-output/old/Lccrm/toc.html
++++ b/test-output/old/Lccrm/toc.html
+@@ -20,9 +20,9 @@
+ <td><a target='mainFrame' href='reporter-output.html'>reporter output</a></td>
+ <td><a target='mainFrame' href='testng.xml.html'>testng.xml</a></td>
+ </tr></table>
+-<table width='100%' class='test-passed'>
++<table width='100%' class='test-failed'>
+ <tr><td>
+-<table style='width: 100%'><tr><td valign='top'>lead (1/0/0)</td><td valign='top' align='right'>
++<table style='width: 100%'><tr><td valign='top'>lead (0/1/0)</td><td valign='top' align='right'>
+   <a href='lead.html' target='mainFrame'>Results</a>
+ </td></tr></table>
+ </td></tr><p/>
+diff --git a/test-output/old/index.html b/test-output/old/index.html
+index df13765..6f0b9e3 100644
+--- a/test-output/old/index.html
++++ b/test-output/old/index.html
+@@ -4,6 +4,6 @@
+ </head><body>
+ <h2><p align='center'>Test results</p></h2>
+ <table border='1' width='100%' class='main-page'><tr><th>Suite</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>testng.xml</th></tr>
+-<tr align='center' class='invocation-passed'><td><em>Total</em></td><td><em>1</em></td><td><em>0</em></td><td><em>0</em></td><td>&nbsp;</td></tr>
+-<tr align='center' class='invocation-passed'><td><a href='Lccrm/index.html'>Lccrm</a></td>
+-<td>1</td><td>0</td><td>0</td><td><a href='Lccrm/testng.xml.html'>Link</a></td></tr></table></body></html>
++<tr align='center' class='invocation-failed'><td><em>Total</em></td><td><em>1</em></td><td><em>1</em></td><td><em>0</em></td><td>&nbsp;</td></tr>
++<tr align='center' class='invocation-failed'><td><a href='Default suite/index.html'>Default suite</a></td>
++<td>1</td><td>1</td><td>0</td><td><a href='Default suite/testng.xml.html'>Link</a></td></tr></table></body></html>
+diff --git a/test-output/testng-failed.xml b/test-output/testng-failed.xml
+index c77dc03..073e77c 100644
+--- a/test-output/testng-failed.xml
++++ b/test-output/testng-failed.xml
+@@ -1,14 +1,14 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+-<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Lccrm]">
+-  <test name="lead(failed)">
+-    <classes>
+-      <class name="com.Selenium.testLccrm.TestLeadEntry">
+-        <methods>
+-          <include name="ReadData"/>
+-          <include name="beforeSuite"/>
+-        </methods>
+-      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
+-    </classes>
+-  </test> <!-- lead(failed) -->
+-</suite> <!-- Failed suite [Lccrm] -->
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
++<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
++  <test name="Default test(failed)">
++    <classes>
++      <class name="com.Selenium.testLccrm.TestLeadEntry">
++        <methods>
++          <include name="beforeSuite"/>
++          <include name="RegisterData"/>
++        </methods>
++      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
++    </classes>
++  </test> <!-- Default test(failed) -->
++</suite> <!-- Failed suite [Default suite] -->
+diff --git a/test-output/testng-results.xml b/test-output/testng-results.xml
+index e267f81..7409568 100644
+--- a/test-output/testng-results.xml
++++ b/test-output/testng-results.xml
+@@ -1,21 +1,90 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<testng-results skipped="0" failed="0" total="1" passed="1">
+-  <reporter-output>
+-  </reporter-output>
+-  <suite name="Lccrm" duration-ms="203070" started-at="2019-11-13T04:34:30Z" finished-at="2019-11-13T04:37:53Z">
+-    <groups>
+-    </groups>
+-    <test name="lead" duration-ms="203070" started-at="2019-11-13T04:34:30Z" finished-at="2019-11-13T04:37:53Z">
+-      <class name="com.Selenium.testLccrm.TestLeadEntry">
+-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]" name="beforeSuite" is-config="true" duration-ms="13614" started-at="2019-11-13T10:04:17Z" finished-at="2019-11-13T10:04:30Z">
+-          <reporter-output>
+-          </reporter-output>
+-        </test-method> <!-- beforeSuite -->
+-        <test-method status="PASS" signature="ReadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@61832929]" name="ReadData" duration-ms="203034" started-at="2019-11-13T10:04:30Z" finished-at="2019-11-13T10:07:53Z">
+-          <reporter-output>
+-          </reporter-output>
+-        </test-method> <!-- ReadData -->
+-      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
+-    </test> <!-- lead -->
+-  </suite> <!-- Lccrm -->
+-</testng-results>
++<?xml version="1.0" encoding="UTF-8"?>
++<testng-results skipped="0" failed="1" total="2" passed="1">
++  <reporter-output>
++  </reporter-output>
++  <suite name="Default suite" duration-ms="18285" started-at="2019-11-28T12:05:50Z" finished-at="2019-11-28T12:06:08Z">
++    <groups>
++    </groups>
++    <test name="Default test" duration-ms="18285" started-at="2019-11-28T12:05:50Z" finished-at="2019-11-28T12:06:08Z">
++      <class name="com.Selenium.testLccrm.TestLeadEntry">
++        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]" name="beforeSuite" is-config="true" duration-ms="12141" started-at="2019-11-28T17:35:37Z" finished-at="2019-11-28T17:35:50Z">
++          <reporter-output>
++          </reporter-output>
++        </test-method> <!-- beforeSuite -->
++        <test-method status="PASS" signature="LeadData()[pri:0, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]" name="LeadData" duration-ms="4178" started-at="2019-11-28T17:35:50Z" finished-at="2019-11-28T17:35:54Z">
++          <reporter-output>
++          </reporter-output>
++        </test-method> <!-- LeadData -->
++        <test-method status="FAIL" signature="RegisterData()[pri:1, instance:com.Selenium.testLccrm.TestLeadEntry@3ffc5af1]" name="RegisterData" duration-ms="14067" started-at="2019-11-28T17:35:54Z" finished-at="2019-11-28T17:36:08Z">
++          <exception class="org.openqa.selenium.NoSuchElementException">
++            <message>
++              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"#btnAssign"}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
++Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
++System info: host: 'HP', ip: '10.80.80.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
++Driver info: org.openqa.selenium.chrome.ChromeDriver
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}]]>
++            </message>
++            <full-stacktrace>
++              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#btnAssign"}
++  (Session info: chrome=78.0.3904.108)
++For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
++Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
++System info: host: 'HP', ip: '10.80.80.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
++Driver info: org.openqa.selenium.chrome.ChromeDriver
++Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\hp\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:52427}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
++Session ID: bf4e5ab2dd050d417d15263d8eb3f8e3
++*** Element info: {Using=id, value=btnAssign}
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
++	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
++	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
++	at java.lang.reflect.Constructor.newInstance(Unknown Source)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
++	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
++	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
++	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
++	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
++	at org.openqa.selenium.By$ById.findElement(By.java:188)
++	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
++	at com.Selenium.testLccrm.TestLeadEntry.RegisterData(TestLeadEntry.java:366)
++	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
++	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
++	at java.lang.reflect.Method.invoke(Unknown Source)
++	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
++	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
++	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
++	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
++	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
++	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
++	at org.testng.TestRunner.privateRun(TestRunner.java:753)
++	at org.testng.TestRunner.run(TestRunner.java:607)
++	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
++	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
++	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
++	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
++	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
++	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
++	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
++	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
++	at org.testng.TestNG.runSuites(TestNG.java:1124)
++	at org.testng.TestNG.run(TestNG.java:1096)
++	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
++	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
++	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
++]]>
++            </full-stacktrace>
++          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
++          <reporter-output>
++          </reporter-output>
++        </test-method> <!-- RegisterData -->
++      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
++    </test> <!-- Default test -->
++  </suite> <!-- Default suite -->
++</testng-results>
+-- 
+2.22.0.windows.1
+
