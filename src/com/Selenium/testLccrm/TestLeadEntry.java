@@ -1,4 +1,4 @@
-		
+	
 package com.Selenium.testLccrm;
 
 import java.io.File;
@@ -6,8 +6,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
@@ -16,6 +17,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -91,20 +95,20 @@ public class TestLeadEntry {
 		// }
 
 		
-//		  for (int i = 1; i < rowCount+1; i++) { 
-//			  Row row = sheet.getRow(i);
-//	              row.setRowNum(i); 
-//		 for (int k = 2; k < row.getLastCellNum();k++) {
-//		 		 Thread.sleep(2000); 
+		  for (int i = 1; i < rowCount+1; i++) { 
+			  Row row = sheet.getRow(i);
+	              row.setRowNum(i); 
+		 for (int k = 2; k < row.getLastCellNum();k++) {
+		 		 Thread.sleep(2000); 
 
 		  //select to the center to create a new leads 
-		 //new Select(wd.findElement(By.id("selCenter"))).selectByValue(row.getCell(k++,blank).getStringCellValue()); 
-//	     if(k < sheet.getLastRowNum()) { 
-//	    	 wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);				
-//	     
-//		//  wd.findElement(By.xpath("//a[@class='nav-link collapsed']//p[contains(text(),'Leads')]")).click(); 
-//		 // wd.findElement(By.xpath("//p[contains(text(),'Add New Lead')]")).click();
-//	     }
+		 new Select(wd.findElement(By.id("selCenter"))).selectByValue(row.getCell(k++,blank).getStringCellValue()); 
+	     if(k < sheet.getLastRowNum()) { 
+	    	 wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);				
+	     
+	// wd.findElement(By.xpath("//a[@class='nav-link collapsed']//p[contains(text(),'Leads')]")).click(); 
+		  wd.findElement(By.xpath("//p[contains(text(),'Add New Lead')]")).click();
+	     }
  
 		  wd.findElement(By.id("txtFirstName")).sendKeys(row.getCell(k++,blank).getStringCellValue());
 		  wd.findElement(By.id("txtMiddleName")).sendKeys(row.getCell(k++,blank).getStringCellValue());
@@ -327,161 +331,219 @@ public class TestLeadEntry {
 		 new File("E:/DOWNLOADS/Screenshot/Newlead_ "+timestamp()+".png"));
 		 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 		 Thread.sleep(200); 
-		 //} 
+		 } 
 		// wd.findElement(By.xpath("//button[text()='OK']")).click(); 
-		// }
+		 }
 		 
 		 
 	}
 	@Test(priority=1)
 	public void RegisterData() throws IOException, InterruptedException {
-		int j=0;
-		JavascriptExecutor js = (JavascriptExecutor) wd;
-		
-		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
-		FileInputStream finput = new FileInputStream(src);
-		workbook = new XSSFWorkbook(finput);
-		sheet = workbook.getSheetAt(5);
-		int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
-		for (int i = 1; i < rowCount + 1; i++) {
-			Row row = sheet.getRow(i);
-			row.setRowNum(i);
-		for (int k = 0; k < row.getLastCellNum(); k++) {	
-    	for (j = 1; j <= 8 ; j++) {
-    		 String nameXL = row.getCell(k,blank).getStringCellValue(); 
-    		 String[] nameXLSplit = nameXL.split(",");
-    		String name =wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[3]")).getText();
+	  File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
+	  FileInputStream finput = new FileInputStream(src);
+	  workbook = new XSSFWorkbook(finput);
+	  sheet = workbook.getSheetAt(5);
+	//Counting Rows at Excel Sheet 
+	  int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
+	 Thread.sleep(500);
+	   new Select(wd.findElement(By.name("cmLeadStatusTable_length"))).selectByValue("25");
+	   WebElement table = wd.findElement(By.xpath("//table[@id='cmLeadStatusTable']"));
+	   List<WebElement> leadStatusTable = table.findElements(By.tagName("tr"));
+			
+			for (int i = 1; i < rowCount + 1; i++) { // loop for no. of rows in excel sheet
+				Row row = sheet.getRow(i);
+				row.setRowNum(i);
+			 String nameInput = row.getCell(0,blank).getStringCellValue(); 
+			 String leadstatusInput = row.getCell(1,blank).getStringCellValue(); 
+			 for (int k = 1; k < leadStatusTable.size(); k++) { // loop for no of rows in webpage table
+			 Thread.sleep(500);	
+			 String nameWeb =wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+k+"]/td[3]")).getText();
+			 String leadStatusWeb =wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+k+"]/td[8]")).getText();
+			      if(nameInput.equals(nameWeb) && leadstatusInput.equals(leadStatusWeb)) {
+			      if(leadstatusInput.equals("Converted")) {
+			      continue;
+						 
+		} else if(leadstatusInput.equals("Unassigned")) {
+		 Thread.sleep(500);
+		wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+k+"]/td[1]")).click(); 
+		Thread.sleep(1000);
+		// code for converting unassigned to inprogress
+		wd.findElement(By.id("btnAssign")).click();
+		Thread.sleep(1000);
+		new Select(wd.findElement(By.id("selAsnLeadStatus"))).selectByValue(row.getCell(2,blank).getStringCellValue());
+        Thread.sleep(1000);
+		new Select(wd.findElement(By.id("selAsnCounselorID"))).selectByValue(row.getCell(3,blank).getStringCellValue());
+		wd.findElement(By.id("txtAsnRemarks")).sendKeys(row.getCell(4,blank).getStringCellValue());
+        Thread.sleep(1000);
+		wd.findElement(By.xpath("//*[@id=\"viewAssignModal\"]/div/div/div/div[2]/div/div/div[1]/button")).click();
+		} else if(leadstatusInput.equals("Inprogress")) {
+		String courseInput = row.getCell(2,blank).getStringCellValue(); 
+		wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+k+"]/td[2]/a")).click(); 
+		Thread.sleep(2000);
+	 // code for converting inprogress to registered
+		wd.findElement(By.id("btnRegister")).click();
+		Thread.sleep(2000);
+		wd.findElement(By.id("btnAddStudent")).click();
+        Thread.sleep(2000);
+	    table = wd.findElement(By.xpath("//*[@id=\"courseTable\"]"));
+	    WebDriverWait waitForElement = new WebDriverWait(wd, 30 );
+		List<WebElement> courseTable = table.findElements(By.tagName("tr"));
+		for(int l=1;l<= courseTable.size();l++) {
+							    	
+	    String courseWeb =wd.findElement(By.xpath("//*[@id=\"courseTable\"]/tbody/tr["+l+"]/td[2]")).getText();
+			 if(courseInput.equals(courseWeb)) {
+		wd.findElement(By.xpath("//*[@id=\"courseTable\"]/tbody/tr["+l+"]/td[1]")).click();
+			break;
+				 }
+							  
+			 }
+        Thread.sleep(1000); 
+		wd.findElement(By.id("btnPay")).click();
+	    Thread.sleep(1000); 
+		new Select(wd.findElement(By.id("selPaymentFor"))).selectByValue(row.getCell(3,blank).getStringCellValue());
+        Thread.sleep(500);
+		new Select(wd.findElement(By.id("selPreferredYear"))).selectByValue(row.getCell(4,blank).getStringCellValue());
+	    Thread.sleep(500);
+	    new Select(wd.findElement(By.id("selCourseSchedulePref"))).selectByValue(row.getCell(5,blank).getStringCellValue());
+        Thread.sleep(500);
+		new Select(wd.findElement(By.id("selExpectedCourseMonth"))).selectByValue(row.getCell(6,blank).getStringCellValue());
+        Thread.sleep(500);
+		new Select(wd.findElement(By.id("selModeOfPayment"))).selectByValue(row.getCell(7,blank).getStringCellValue());
+        Thread.sleep(500);
+		WebElement Date = wd.findElement(By.id("payDate"));
+		Date.sendKeys(Keys.chord(Keys.CONTROL,"a")); 
+		Date.sendKeys(Keys.BACK_SPACE);
+		Date.sendKeys(row.getCell(8,blank).getStringCellValue());
+		Date.sendKeys(Keys.TAB); 
+        Thread.sleep(500);
+		wd.findElement(By.id("transactionPayRef")).sendKeys(row.getCell(9,blank).getStringCellValue());
+        Thread.sleep(500);
+		wd.findElement(By.id("feeAmount")).sendKeys(row.getCell(10,blank).getStringCellValue());
+	    wd.findElement(By.id("btnSubmitPayment")).click();
+        Thread.sleep(500);
+		wd.findElement(By.id("btnRegisterCancel")).click();
+        Thread.sleep(4000); 
+	 // move to dashboard page
+		wd.findElement(By.xpath("//text()[contains(.,'Leads')]/ancestor::p[1]")).click(); 
+		wd.findElement(By.xpath("//p[text()='Dashboard']")).click(); 
+	 	Thread.sleep(2000);
+		new Select(wd.findElement(By.name("cmLeadStatusTable_length"))).selectByValue("25");
 
-    		String leadStatus =wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[7]")).getText();
-    		if(leadStatus.equals("Unassigned")) {
-    			
-    			for(int a=0;a<nameXLSplit.length;a++) {
-        			if(nameXLSplit[a].equals(name)) {
-        				 wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[1]")).click(); 
-        			}
-        		}
-    		} else if(leadStatus.equals("Inprogress")) {
-    			 wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[2]")).click(); 
-    			 Thread.sleep(1000);
-    			 wd.findElement(By.id("btnRegister")).click();
-    			 
-    		}
-    	    wd.findElement(By.id("btnAssign")).click();
-   	    	 new Select(wd.findElement(By.id("selAsnLeadStatus"))).selectByValue(row.getCell(k++,blank).getStringCellValue());
-		     new Select(wd.findElement(By.id("selAsnCounselorID"))).selectByValue(row.getCell(k++,blank).getStringCellValue());
- 		     wd.findElement(By.xpath("//*[@id=\"viewAssignModal\"]/div/div/div/div[2]/div/div/div[1]/button")).click();
-		
-    	}
-    	for (j = 1; j <= 8 ; j++) {
-    		String leadStatus =wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[7]")).getText();
-    		if(leadStatus.equals("Inprogress")) {
-   			 wd.findElement(By.xpath("//*[@id='cmLeadStatusTable']/tbody/tr["+j+"]/td[2]")).click(); 
-   			 Thread.sleep(1000);
-   			 wd.findElement(By.id("btnRegister")).click();
-   		}
-    	}
-    	
+				} else {
+						continue;
+									}
+				} else {
+						continue;
+					}
+
+			}		
+		WebElement element = wd.findElement(By.tagName("body"));
+
+		JavascriptExecutor js = (JavascriptExecutor)wd;
+		js.executeScript("arguments[0].scrollIntoView();", element); 
+						
+			}
 		}
-                 }
-		     }
+		
+
 		 
-	@Test(priority = 2)
+/*	@Test(priority = 2)
 	public void BatchDataRead() throws IOException, InterruptedException {
 		try {
-			// Import excel sheet.
-			File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
-			// Load the file.
-			FileInputStream finput = new FileInputStream(src);
-			// Load he workbook.
-			workbook = new XSSFWorkbook(finput);
+		// Import excel sheet.
+		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
+		// Load the file.
+		FileInputStream finput = new FileInputStream(src);
+		// Load he workbook.
+		workbook = new XSSFWorkbook(finput);
 
-			// Load the sheet in which data is stored.
-			sheet = workbook.getSheetAt(0);
+		// Load the sheet in which data is stored.
+		sheet = workbook.getSheetAt(0);
 			
 		 int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
 	        System.out.println(rowCount);
 			
-			for (int i = 1; i < rowCount + 1; i++) {
-				Row row = sheet.getRow(i);
-				row.setRowNum(i);
-				for (int k = 0; k < row.getLastCellNum(); k++) {
-					wd.findElement(By.xpath("//text()[contains(.,'Batch Details')]/ancestor::p[1]")).click();
-					// Enter to Batch Group Master
-					wd.findElement(By.xpath("//p[text()='Batch Group']")).click();
-					Thread.sleep(100);
-					// add Batch Group
-					wd.findElement(By.id("btnBGroupAdd")).click();
-					new Select(wd.findElement(By.id("selBatchGroupYear"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
-					new Select(wd.findElement(By.id("selBatchGroupQuater"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
-					wd.findElement(By.id("btnBGroupSave")).click();
+		for (int i = 1; i < rowCount + 1; i++) {
+			Row row = sheet.getRow(i);
+		    row.setRowNum(i);
+		for (int k = 0; k < row.getLastCellNum(); k++) {
+		wd.findElement(By.xpath("//text()[contains(.,'Batch Details')]/ancestor::p[1]")).click();
+		// Enter to Batch Group Master
+		wd.findElement(By.xpath("//p[text()='Batch Group']")).click();
+		Thread.sleep(100);
+		// add Batch Group
+		wd.findElement(By.id("btnBGroupAdd")).click();
+		new Select(wd.findElement(By.id("selBatchGroupYear"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
+		new Select(wd.findElement(By.id("selBatchGroupQuater"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
+		wd.findElement(By.id("btnBGroupSave")).click();
 					
-					// Enter to batch Master
-					Thread.sleep(2000);
-					wd.findElement(By.xpath("//p[text()='Batch']")).click();
+		// Enter to batch Master
+		Thread.sleep(2000);
+		wd.findElement(By.xpath("//p[text()='Batch']")).click();
 					
-					// Enter to add batch details
-					wd.findElement(By.id("btnAddBatch")).click();
-					new Select(wd.findElement(By.id("selBatchGroupCode"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
-					new Select(wd.findElement(By.id("selCourseList"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
-					new Select(wd.findElement(By.id("selBatchType"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
-					wd.findElement(By.id("txtBatchSizeMin")).sendKeys(Keys.chord(Keys.CONTROL, "a"), row.getCell(k++, blank).getStringCellValue());
-					wd.findElement(By.id("txtBatchSizeMax")).sendKeys(Keys.chord(Keys.CONTROL, "a"), row.getCell(k++, blank).getStringCellValue());
-					new Select(wd.findElement(By.id("selBatchSession"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
-					WebElement StartDate = wd.findElement(By.id("txtBatchStartDate"));
-					StartDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-					StartDate.sendKeys(Keys.BACK_SPACE);
-					StartDate.sendKeys(row.getCell(k++, blank).getStringCellValue());
-					StartDate.sendKeys(Keys.TAB);
-					WebElement EndDate = wd.findElement(By.id("txtBatchEndDate"));
-					EndDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-					EndDate.sendKeys(Keys.BACK_SPACE);
-					EndDate.sendKeys(row.getCell(k++, blank).getStringCellValue());
-					EndDate.sendKeys(Keys.TAB);
-					wd.findElement(By.id("btnAdd")).click();
-					// Enter to add Course Details
-					new Select(wd.findElement(By.id("facultyVerbal"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
-					wd.findElement(By.id("noClassVerbal")).sendKeys("1");
-					wd.findElement(By.id("noTestVerbal")).sendKeys("1");
-					wd.findElement(By.id("btnCourseAdd")).click();
+		// Enter to add batch details
+		wd.findElement(By.id("btnAddBatch")).click();
+		new Select(wd.findElement(By.id("selBatchGroupCode"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
+		new Select(wd.findElement(By.id("selCourseList"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
+		new Select(wd.findElement(By.id("selBatchType"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
+		wd.findElement(By.id("txtBatchSizeMin")).sendKeys(Keys.chord(Keys.CONTROL, "a"), row.getCell(k++, blank).getStringCellValue());
+		wd.findElement(By.id("txtBatchSizeMax")).sendKeys(Keys.chord(Keys.CONTROL, "a"), row.getCell(k++, blank).getStringCellValue());
+		new Select(wd.findElement(By.id("selBatchSession"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
+		WebElement StartDate = wd.findElement(By.id("txtBatchStartDate"));
+		StartDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		StartDate.sendKeys(Keys.BACK_SPACE);
+	    StartDate.sendKeys(row.getCell(k++, blank).getStringCellValue());
+		StartDate.sendKeys(Keys.TAB);
+		WebElement EndDate = wd.findElement(By.id("txtBatchEndDate"));
+		EndDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		EndDate.sendKeys(Keys.BACK_SPACE);
+		EndDate.sendKeys(row.getCell(k++, blank).getStringCellValue());
+		EndDate.sendKeys(Keys.TAB);
+		wd.findElement(By.id("btnAdd")).click();
+		// Enter to add Course Details
+		new Select(wd.findElement(By.id("facultyVerbal"))).selectByValue(row.getCell(k++, blank).getStringCellValue());
+		wd.findElement(By.id("noClassVerbal")).sendKeys("1");
+		wd.findElement(By.id("noTestVerbal")).sendKeys("1");
+		wd.findElement(By.id("btnCourseAdd")).click();
 
-					// Enter to add Class schedule
-					WebElement ClassDate = wd.findElement(By.id("dtclass1"));
-					ClassDate.sendKeys("05/04/2020");
-					new Select(wd.findElement(By.id("classSubject1"))).selectByValue("Verbal");
-					new Select(wd.findElement(By.id("classfaculty1"))).selectByValue("1011");
+		// Enter to add Class schedule
+		WebElement ClassDate = wd.findElement(By.id("dtclass1"));
+		ClassDate.sendKeys("05/04/2020");
+		new Select(wd.findElement(By.id("classSubject1"))).selectByValue("Verbal");
+		new Select(wd.findElement(By.id("classfaculty1"))).selectByValue("1011");
 
-					wd.findElement(By.id("classTopic1")).sendKeys("verb");
-					wd.findElement(By.id("classContent1")).sendKeys("verb");
-					WebElement StartTime = wd.findElement(By.id("classStart1"));
-					StartTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-					StartTime.sendKeys(Keys.BACK_SPACE);
-					StartTime.sendKeys("02:45PM");
-					StartTime.sendKeys(Keys.TAB);
-					WebElement EndTime = wd.findElement(By.id("classEnd1"));
-					EndTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-					EndTime.sendKeys(Keys.BACK_SPACE);
-					EndTime.sendKeys("04:45PM");
-					EndTime.sendKeys(Keys.TAB);
-					wd.findElement(By.xpath("//*[@id=\"row1\"]/td[9]/button[1]\r\n")).click();
+		wd.findElement(By.id("classTopic1")).sendKeys("verb");
+		wd.findElement(By.id("classContent1")).sendKeys("verb");
+		WebElement StartTime = wd.findElement(By.id("classStart1"));
+		StartTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		StartTime.sendKeys(Keys.BACK_SPACE);
+		StartTime.sendKeys("02:45PM");
+		StartTime.sendKeys(Keys.TAB);
+		WebElement EndTime = wd.findElement(By.id("classEnd1"));
+		EndTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		EndTime.sendKeys(Keys.BACK_SPACE);
+		EndTime.sendKeys("04:45PM");
+		EndTime.sendKeys(Keys.TAB);
+		wd.findElement(By.xpath("//*[@id=\"row1\"]/td[9]/button[1]\r\n")).click();
 
-					// Enter to add Test Schedule
-					WebElement TestDate = wd.findElement(By.id("dttest1"));
-					TestDate.sendKeys("05/30/2020");
-					new Select(wd.findElement(By.id("testSubject1"))).selectByValue("Verbal");
-					new Select(wd.findElement(By.id("testfaculty1"))).selectByValue("1011");
-					wd.findElement(By.id("testTopic1")).sendKeys("verb");
-					wd.findElement(By.id("testContent1")).sendKeys("verb");
-					WebElement TestStartTime = wd.findElement(By.id("testStart1"));
-					TestStartTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-					TestStartTime.sendKeys(Keys.BACK_SPACE);
-					TestStartTime.sendKeys("02:45PM");
-					TestStartTime.sendKeys(Keys.TAB);
-					WebElement TestEndTime = wd.findElement(By.id("testEnd1"));
-					TestEndTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-					TestEndTime.sendKeys(Keys.BACK_SPACE);
-					TestEndTime.sendKeys("04:45PM");
-					TestEndTime.sendKeys(Keys.TAB);
-					wd.findElement(By.xpath("//*[@id=\"row1\"]/td[9]/button[1]")).click();
+		// Enter to add Test Schedule
+		WebElement TestDate = wd.findElement(By.id("dttest1"));
+		TestDate.sendKeys("05/30/2020");
+		new Select(wd.findElement(By.id("testSubject1"))).selectByValue("Verbal");
+		new Select(wd.findElement(By.id("testfaculty1"))).selectByValue("1011");
+		wd.findElement(By.id("testTopic1")).sendKeys("verb");
+		wd.findElement(By.id("testContent1")).sendKeys("verb");
+		WebElement TestStartTime = wd.findElement(By.id("testStart1"));
+		TestStartTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		TestStartTime.sendKeys(Keys.BACK_SPACE);
+		TestStartTime.sendKeys("02:45PM");
+		TestStartTime.sendKeys(Keys.TAB);
+		WebElement TestEndTime = wd.findElement(By.id("testEnd1"));
+		TestEndTime.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		TestEndTime.sendKeys(Keys.BACK_SPACE);
+		TestEndTime.sendKeys("04:45PM");
+		TestEndTime.sendKeys(Keys.TAB);
+		wd.findElement(By.xpath("//*[@id=\"row1\"]/td[9]/button[1]")).click();
 				}
 			}
 		} catch (Exception e) {
@@ -494,7 +556,7 @@ public class TestLeadEntry {
 		Thread.sleep(200);
 
 	}
-	@Test(priority=2)
+	@Test(priority=3)
 	public void EmployeeData() throws IOException, InterruptedException {
 		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
 		FileInputStream finput = new FileInputStream(src);
@@ -542,7 +604,7 @@ public class TestLeadEntry {
 
          }
 	}
-	@Test(priority=3)
+	@Test(priority=4)
 	public void MasterData() throws IOException, InterruptedException {
 		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
 		FileInputStream finput = new FileInputStream(src);
@@ -567,7 +629,7 @@ public class TestLeadEntry {
                  }
 		     }
 		 }
-	@Test(priority=3)
+	@Test(priority=5)
 	public void ReportsData() throws IOException, InterruptedException {
 		
     	wd.findElement(By.xpath("//text()[contains(.,'Reports')]/ancestor::p[1]")).click();
@@ -582,5 +644,7 @@ public class TestLeadEntry {
     	wd.findElement(By.xpath("//p[text()='Payment Report']")).click();
 
 
+	}*/
 	}
-	}
+
+	
