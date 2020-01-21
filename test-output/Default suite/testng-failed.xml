@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.Selenium.testLccrm.testclass">
+      <class name="com.Selenium.testLccrm.TestLeadEntry">
         <methods>
-          <include name="RegisterData"/>
           <include name="beforeSuite"/>
+          <include name="BatchDataRead"/>
         </methods>
-      </class> <!-- com.Selenium.testLccrm.testclass -->
+      </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
