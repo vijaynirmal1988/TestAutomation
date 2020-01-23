@@ -48,7 +48,7 @@ public class testclass {
 	public void LeadData() throws IOException, InterruptedException {
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		File src = new File("E:\\DOWNLOADS\\TestData.xlsx");
+		File src = new File("C:\\Users\\hp\\eclipse workspace\\TestAutomation\\TestData.xlsx");
 		FileInputStream finput = new FileInputStream(src);
 		workbook = new XSSFWorkbook(finput);
 		sheet = workbook.getSheetAt(0);

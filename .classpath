@@ -24,7 +24,6 @@
 	<classpathentry kind="lib" path="C:/Users/hp/Downloads/poi-4.0.1/lib/jaxb-impl-2.3.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/hp/Downloads/poi-4.0.1/lib/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="C:/Users/hp/Downloads/poi-4.0.1/lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="D:/google-api-java-client/screenshot-1.1.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/google api jar/httpclient-4.0.1.jar"/>
 	<classpathentry kind="lib" path="D:/google api jar/httpcore-4.0.1.jar"/>
@@ -35,5 +34,6 @@
 	<classpathentry kind="lib" path="D:/commons-io-2.6/commons-io-2.6-tests.jar"/>
 	<classpathentry kind="lib" path="D:/commons-io-2.6/commons-io-2.6-test-sources.jar"/>
 	<classpathentry kind="lib" path="E:/poi-3.10-FINAL/ooxml-lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/DOWNLOADS/lib/ashot-1.5.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

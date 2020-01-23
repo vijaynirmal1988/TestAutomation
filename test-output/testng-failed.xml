@@ -6,7 +6,7 @@
       <class name="com.Selenium.testLccrm.TestLeadEntry">
         <methods>
           <include name="beforeSuite"/>
-          <include name="BatchDataRead"/>
+          <include name="LoginData"/>
         </methods>
       </class> <!-- com.Selenium.testLccrm.TestLeadEntry -->
     </classes>
