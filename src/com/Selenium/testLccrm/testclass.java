@@ -23,6 +23,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+@SuppressWarnings("unused")
 public class testclass {
 
 	WebDriver wd;
